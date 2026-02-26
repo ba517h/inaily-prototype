@@ -7,6 +7,7 @@ import OTPScreen from './screens/OTPScreen';
 import IndustrySelect from './screens/IndustrySelect';
 import NetworkingBio from './screens/NetworkingBio';
 import ConnectionsScreen from './screens/Connections';
+import ChatConversation from './screens/ChatConversation';
 import Profile from './screens/Profile';
 import styles from './App.module.css';
 
@@ -17,6 +18,7 @@ const SCREENS = [
   { id: 'industry', label: 'Industry', component: IndustrySelect },
   { id: 'networking', label: 'Bio', component: NetworkingBio },
   { id: 'connections', label: 'People', component: ConnectionsScreen },
+  { id: 'chat', label: 'Chat', component: ChatConversation },
   { id: 'profile', label: 'Profile', component: Profile },
 ];
 
