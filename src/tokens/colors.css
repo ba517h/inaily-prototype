@@ -1,0 +1,85 @@
+/* Inaily — M3 Expressive Color Tokens (Light Theme) */
+
+:root {
+  /* ── Primary ── */
+  --color-primary: #68548E;
+  --color-on-primary: #FFFFFF;
+  --color-primary-container: #EBDDFF;
+  --color-on-primary-container: #231047;
+  --color-primary-fixed: #EBDDFF;
+  --color-on-primary-fixed: #231047;
+  --color-primary-fixed-dim: #D3BCFD;
+  --color-inverse-primary: #D3BCFD;
+
+  /* ── Secondary ── */
+  --color-secondary: #635B70;
+  --color-on-secondary: #FFFFFF;
+  --color-secondary-container: #E9DEF8;
+  --color-on-secondary-container: #1F182B;
+  --color-secondary-fixed: #E9DEF8;
+  --color-on-secondary-fixed: #1F182B;
+  --color-secondary-fixed-dim: #CDC2DB;
+
+  /* ── Tertiary ── */
+  --color-tertiary: #7E525E;
+  --color-on-tertiary: #FFFFFF;
+  --color-tertiary-container: #FFD9E0;
+  --color-on-tertiary-container: #31101B;
+
+  /* ── Error ── */
+  --color-error: #BA1A1A;
+  --color-on-error: #FFFFFF;
+  --color-error-container: #FFDAD6;
+  --color-on-error-container: #410002;
+
+  /* ── Success ── */
+  --color-success: #386A20;
+  --color-on-success: #FFFFFF;
+  --color-success-container: #B8F397;
+  --color-on-success-container: #072100;
+
+  /* ── Warning ── */
+  --color-warning: #7C5800;
+  --color-on-warning: #FFFFFF;
+  --color-warning-container: #FFDEA6;
+  --color-on-warning-container: #271900;
+
+  /* ── Info ── */
+  --color-info: #005FAF;
+  --color-on-info: #FFFFFF;
+  --color-info-container: #D4E3FF;
+  --color-on-info-container: #001B3D;
+
+  /* ── Surfaces ── */
+  --color-surface: #FEF7FF;
+  --color-on-surface: #1D1B20;
+  --color-surface-variant: #E7E0EB;
+  --color-on-surface-variant: #49454E;
+  --color-surface-container-lowest: #FFFFFF;
+  --color-surface-container-low: #F8F1FA;
+  --color-surface-container: #F2ECF4;
+  --color-surface-container-high: #EDE6EE;
+  --color-surface-container-highest: #E7E0E8;
+  --color-surface-dim: #DED8E0;
+  --color-surface-bright: #FEF7FF;
+  --color-surface-tint: #68548E;
+
+  /* ── Outline ── */
+  --color-outline: #7A757F;
+  --color-outline-variant: #CBC4CF;
+
+  /* ── Inverse ── */
+  --color-inverse-surface: #322F35;
+  --color-inverse-on-surface: #F5EFF7;
+
+  /* ── Utility ── */
+  --color-shadow: #000000;
+  --color-scrim: #000000;
+
+  /* ── Opacity Helpers ── */
+  --opacity-disabled-bg: 0.12;
+  --opacity-disabled-text: 0.38;
+  --opacity-hover: 0.08;
+  --opacity-pressed: 0.12;
+  --opacity-focus: 0.12;
+}

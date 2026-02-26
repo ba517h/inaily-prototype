@@ -1,0 +1,56 @@
+/* Phone Entry — Onboarding Step 1/7 (screen-specific styles only) */
+
+.accent {
+  color: var(--color-primary);
+  font-size: 1.05em;
+}
+
+.field {
+  margin-bottom: var(--spacing-2xl);
+}
+
+/* ── Toggle ── */
+.toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.toggleLabel {
+  font-family: var(--type-body-medium-family);
+  font-size: var(--type-body-medium-size);
+  color: var(--color-on-surface);
+}
+
+.switch {
+  width: 52px;
+  height: 32px;
+  border-radius: var(--shape-full);
+  border: 2px solid var(--color-outline);
+  background: var(--color-surface-container-highest);
+  cursor: pointer;
+  position: relative;
+  padding: 0;
+  transition: all var(--duration-short-4) var(--ease-emphasized-decel);
+}
+
+.switchOn {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.switchThumb {
+  width: 24px;
+  height: 24px;
+  border-radius: var(--shape-full);
+  background: white;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transition: transform var(--duration-medium-1) var(--ease-expressive-spatial-fast);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+}
+
+.switchOn .switchThumb {
+  transform: translateX(20px);
+}

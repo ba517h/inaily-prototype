@@ -1,0 +1,20 @@
+/* Industry Select — Onboarding Step 5/7 (screen-specific styles only) */
+
+.accent {
+  color: var(--color-primary);
+  font-size: 1.05em;
+}
+
+.search {
+  margin-bottom: var(--spacing-lg);
+}
+
+.list {
+  flex: 1;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.list::-webkit-scrollbar {
+  display: none;
+}

@@ -1,0 +1,118 @@
+/* Inaily — M3 Expressive Typography Tokens */
+/* Brand: Bricolage Grotesque | Plain: Inter */
+
+:root {
+  --font-brand: 'Bricolage Grotesque', system-ui, sans-serif;
+  --font-plain: 'Inter', system-ui, -apple-system, sans-serif;
+
+  /* ── Display ── (Brand) */
+  --type-display-large-family: var(--font-brand);
+  --type-display-large-size: 57px;
+  --type-display-large-line-height: 64px;
+  --type-display-large-weight: 400;
+  --type-display-large-weight-emphasized: 800;
+  --type-display-large-tracking: -0.25px;
+
+  --type-display-medium-family: var(--font-brand);
+  --type-display-medium-size: 45px;
+  --type-display-medium-line-height: 52px;
+  --type-display-medium-weight: 400;
+  --type-display-medium-weight-emphasized: 800;
+  --type-display-medium-tracking: 0px;
+
+  --type-display-small-family: var(--font-brand);
+  --type-display-small-size: 36px;
+  --type-display-small-line-height: 44px;
+  --type-display-small-weight: 400;
+  --type-display-small-weight-emphasized: 700;
+  --type-display-small-tracking: 0px;
+
+  /* ── Headline ── (Brand) */
+  --type-headline-large-family: var(--font-brand);
+  --type-headline-large-size: 32px;
+  --type-headline-large-line-height: 40px;
+  --type-headline-large-weight: 400;
+  --type-headline-large-weight-emphasized: 700;
+  --type-headline-large-tracking: 0px;
+
+  --type-headline-medium-family: var(--font-brand);
+  --type-headline-medium-size: 28px;
+  --type-headline-medium-line-height: 36px;
+  --type-headline-medium-weight: 400;
+  --type-headline-medium-weight-emphasized: 700;
+  --type-headline-medium-tracking: 0px;
+
+  --type-headline-small-family: var(--font-brand);
+  --type-headline-small-size: 24px;
+  --type-headline-small-line-height: 32px;
+  --type-headline-small-weight: 400;
+  --type-headline-small-weight-emphasized: 700;
+  --type-headline-small-tracking: 0px;
+
+  /* ── Title ── (Brand for large, Plain for medium/small) */
+  --type-title-large-family: var(--font-brand);
+  --type-title-large-size: 22px;
+  --type-title-large-line-height: 28px;
+  --type-title-large-weight: 400;
+  --type-title-large-weight-emphasized: 700;
+  --type-title-large-tracking: 0px;
+
+  --type-title-medium-family: var(--font-brand);
+  --type-title-medium-size: 16px;
+  --type-title-medium-line-height: 24px;
+  --type-title-medium-weight: 500;
+  --type-title-medium-weight-semi-emphasized: 600;
+  --type-title-medium-weight-emphasized: 700;
+  --type-title-medium-tracking: 0.15px;
+
+  --type-title-small-family: var(--font-plain);
+  --type-title-small-size: 14px;
+  --type-title-small-line-height: 20px;
+  --type-title-small-weight: 500;
+  --type-title-small-weight-emphasized: 700;
+  --type-title-small-tracking: 0.1px;
+
+  /* ── Label ── (Plain) */
+  --type-label-large-family: var(--font-plain);
+  --type-label-large-size: 14px;
+  --type-label-large-line-height: 20px;
+  --type-label-large-weight: 500;
+  --type-label-large-weight-emphasized: 600;
+  --type-label-large-tracking: 0.1px;
+
+  --type-label-medium-family: var(--font-plain);
+  --type-label-medium-size: 12px;
+  --type-label-medium-line-height: 16px;
+  --type-label-medium-weight: 500;
+  --type-label-medium-weight-emphasized: 700;
+  --type-label-medium-tracking: 0.5px;
+
+  --type-label-small-family: var(--font-plain);
+  --type-label-small-size: 11px;
+  --type-label-small-line-height: 16px;
+  --type-label-small-weight: 500;
+  --type-label-small-weight-emphasized: 700;
+  --type-label-small-tracking: 0.5px;
+
+  /* ── Body ── (Plain) */
+  --type-body-large-family: var(--font-plain);
+  --type-body-large-size: 16px;
+  --type-body-large-line-height: 24px;
+  --type-body-large-weight: 400;
+  --type-body-large-weight-emphasized: 500;
+  --type-body-large-tracking: 0.5px;
+
+  --type-body-medium-family: var(--font-plain);
+  --type-body-medium-size: 14px;
+  --type-body-medium-line-height: 20px;
+  --type-body-medium-weight: 400;
+  --type-body-medium-weight-emphasized: 500;
+  --type-body-medium-tracking: 0.25px;
+
+  --type-body-small-family: var(--font-plain);
+  --type-body-small-size: 12px;
+  --type-body-small-line-height: 16px;
+  --type-body-small-weight: 400;
+  --type-body-small-weight-emphasized: 500;
+  --type-body-small-tracking: 0.4px;
+}

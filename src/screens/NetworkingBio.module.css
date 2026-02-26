@@ -1,0 +1,29 @@
+/* Networking Bio — Onboarding Step 6/7 (screen-specific styles only) */
+
+.accent {
+  color: var(--color-primary);
+  font-size: 1.05em;
+}
+
+.field {
+  margin-bottom: var(--spacing-xl);
+}
+
+.examples {
+  display: flex;
+  flex-direction: column;
+}
+
+.examplesLabel {
+  font-family: var(--type-label-medium-family);
+  font-size: var(--type-label-medium-size);
+  font-weight: var(--type-label-medium-weight-emphasized);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--color-on-surface-variant);
+  margin-bottom: var(--spacing-md);
+}
+
+.exampleGap {
+  height: var(--spacing-sm);
+}

@@ -1,0 +1,62 @@
+.wrapper {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.frame {
+  width: 375px;
+  height: 812px;
+  border-radius: 50px;
+  background-color: #111111;
+  padding: 10px;
+  position: relative;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.08) inset,
+    0 0 0 2px rgba(0, 0, 0, 0.3),
+    0 24px 80px rgba(0, 0, 0, 0.4),
+    0 8px 24px rgba(0, 0, 0, 0.25);
+}
+
+/* Dynamic Island */
+.dynamicIsland {
+  width: 126px;
+  height: 36px;
+  background-color: #000000;
+  border-radius: 20px;
+  position: absolute;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.screen {
+  width: 100%;
+  height: 100%;
+  border-radius: 42px;
+  overflow: hidden;
+  background-color: var(--color-surface);
+  position: relative;
+}
+
+.homeIndicator {
+  width: 134px;
+  height: 5px;
+  background-color: rgba(255, 255, 255, 0.25);
+  border-radius: 3px;
+  position: absolute;
+  bottom: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+}
+
+.label {
+  font-family: var(--font-plain);
+  font-size: 13px;
+  font-weight: 500;
+  color: rgba(224, 214, 240, 0.5);
+  text-align: center;
+}

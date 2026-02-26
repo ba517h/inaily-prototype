@@ -1,0 +1,102 @@
+.container {
+  background-color: var(--color-surface-container-highest);
+  border-top-left-radius: var(--shape-xs);
+  border-top-right-radius: var(--shape-xs);
+  border-bottom: 1px solid var(--color-on-surface-variant);
+  padding: var(--spacing-sm) var(--spacing-lg) var(--spacing-sm);
+  min-height: 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  cursor: text;
+  transition: border-color var(--transition-micro);
+}
+
+.focused {
+  border-bottom: 2px solid var(--color-primary);
+  padding-bottom: calc(var(--spacing-sm) - 1px); /* compensate for thicker border */
+}
+
+.error {
+  border-bottom-color: var(--color-error);
+}
+
+.error.focused {
+  border-bottom: 2px solid var(--color-error);
+}
+
+.disabled {
+  opacity: 0.38;
+  cursor: not-allowed;
+}
+
+.label {
+  font-family: var(--type-body-large-family);
+  font-size: var(--type-body-large-size);
+  line-height: var(--type-body-large-line-height);
+  color: var(--color-on-surface-variant);
+  transition: all var(--duration-short-4) var(--ease-emphasized-decel);
+  pointer-events: none;
+}
+
+.labelActive {
+  font-size: var(--type-body-small-size);
+  line-height: var(--type-body-small-line-height);
+  color: var(--color-primary);
+}
+
+.error .labelActive {
+  color: var(--color-error);
+}
+
+.inputRow {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.prefix {
+  font-family: var(--type-body-large-family);
+  font-size: var(--type-body-large-size);
+  color: var(--color-on-surface);
+  flex-shrink: 0;
+}
+
+.input {
+  width: 100%;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-family: var(--type-body-large-family);
+  font-size: var(--type-body-large-size);
+  line-height: var(--type-body-large-line-height);
+  color: var(--color-on-surface);
+  padding: 0;
+  resize: none;
+}
+
+textarea.input {
+  min-height: calc(var(--type-body-large-line-height) * 3);
+}
+
+.counter {
+  position: absolute;
+  right: var(--spacing-lg);
+  bottom: var(--spacing-xs);
+  font-family: var(--type-body-small-family);
+  font-size: var(--type-body-small-size);
+  color: var(--color-on-surface-variant);
+}
+
+.helper {
+  padding: var(--spacing-xs) var(--spacing-lg) 0;
+  font-family: var(--type-body-small-family);
+  font-size: var(--type-body-small-size);
+  line-height: var(--type-body-small-line-height);
+  color: var(--color-on-surface-variant);
+}
+
+.helperError {
+  color: var(--color-error);
+}

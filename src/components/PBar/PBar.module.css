@@ -1,0 +1,24 @@
+/* M3 Expressive Segmented Progress Bar */
+
+.bar {
+  display: flex;
+  gap: 3px;
+  width: 100%;
+}
+
+.segment {
+  flex: 1;
+  border-radius: var(--shape-full);
+  transition: all var(--duration-medium-2) var(--ease-emphasized-decel);
+}
+
+.filled {
+  height: 4px;
+  background-color: var(--color-primary);
+}
+
+.empty {
+  height: 3px;
+  background-color: var(--color-outline-variant);
+  margin-top: 0.5px;
+}

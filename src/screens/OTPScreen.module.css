@@ -1,0 +1,25 @@
+/* OTP Screen — Onboarding Step 2/7 (screen-specific styles only) */
+
+.accent {
+  color: var(--color-primary);
+  font-size: 1.05em;
+}
+
+.otpWrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: var(--spacing-2xl);
+}
+
+.resend {
+  font-family: var(--type-body-medium-family);
+  font-size: var(--type-body-medium-size);
+  color: var(--color-on-surface-variant);
+  text-align: center;
+  margin: 0;
+}
+
+.resend strong {
+  color: var(--color-on-surface);
+  font-weight: 600;
+}

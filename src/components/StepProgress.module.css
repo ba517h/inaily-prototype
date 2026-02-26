@@ -1,0 +1,49 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-xs);
+}
+
+.step {
+  display: flex;
+  align-items: center;
+}
+
+.dot {
+  border-radius: var(--shape-full);
+  transition: all var(--duration-medium-2) var(--ease-emphasized-decel);
+}
+
+.completed {
+  width: 8px;
+  height: 8px;
+  background-color: var(--color-primary);
+}
+
+.current {
+  width: 12px;
+  height: 12px;
+  background-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(104, 84, 142, 0.2);
+}
+
+.upcoming {
+  width: 8px;
+  height: 8px;
+  background-color: var(--color-outline-variant);
+}
+
+.connector {
+  width: 24px;
+  height: 2px;
+  transition: background-color var(--transition-standard);
+}
+
+.connectorDone {
+  background-color: var(--color-primary);
+}
+
+.connectorPending {
+  background-color: var(--color-outline-variant);
+}

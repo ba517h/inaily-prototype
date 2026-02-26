@@ -1,0 +1,36 @@
+.container {
+  display: flex;
+  gap: var(--spacing-sm);
+  justify-content: center;
+}
+
+.box {
+  width: 48px;
+  height: 52px;
+  border-radius: var(--shape-sm);
+  border: 1px solid var(--color-outline-variant);
+  background-color: var(--color-surface-container-lowest);
+  text-align: center;
+  font-family: var(--type-headline-small-family);
+  font-size: var(--type-headline-small-size);
+  font-weight: 500;
+  color: var(--color-on-surface);
+  outline: none;
+  transition: border-color var(--transition-micro), transform var(--transition-micro);
+  caret-color: var(--color-primary);
+}
+
+@keyframes otpPulse {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(104, 84, 142, 0.3); }
+  50%      { box-shadow: 0 0 0 4px rgba(104, 84, 142, 0.15); }
+}
+
+.active {
+  border: 2px solid var(--color-primary);
+  transform: scale(1.05);
+  animation: otpPulse 1.5s ease-in-out infinite;
+}
+
+.filled {
+  border-color: var(--color-outline);
+}
