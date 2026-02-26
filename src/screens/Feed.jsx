@@ -10,69 +10,58 @@ export default function Feed() {
         {/* Status bar spacer */}
         <div className={styles.statusBar} />
 
-        {/* Event Banner */}
-        <div className={styles.banner}>
-          {/* Decorative glow */}
-          <div className={styles.bannerGlow} />
-          <div className={styles.bannerDecor} />
-
-          {/* Top row: avatar + notification */}
-          <div className={styles.bannerTop}>
-            <div className={styles.bannerAvatar}>N</div>
-            <button className={styles.bannerBell}>
-              <Icon name="notifications" size={20} color="rgba(255,255,255,0.9)" />
-            </button>
+        {/* Compact Event Card */}
+        <div className={styles.eventCard}>
+          <div className={styles.eventIcon}>
+            <Icon name="calendar_today" size={22} fill color="var(--color-on-primary-container)" />
           </div>
-
-          {/* Event info */}
-          <div className={styles.bannerInfo}>
-            <h1 className={styles.bannerTitle}>Tech Summit 2026</h1>
-            <div className={styles.bannerPills}>
-              <span className={styles.pill}>
-                <Icon name="calendar_today" size={14} fill color="rgba(255,255,255,0.8)" />
-                Feb 24–27, 2026
-              </span>
-              <span className={styles.pill}>
-                <Icon name="location_on" size={14} fill color="rgba(255,255,255,0.8)" />
-                Bengaluru
-              </span>
-              <span className={styles.pill}>
-                <Icon name="group" size={14} fill color="rgba(255,255,255,0.8)" />
-                142 attendees
-              </span>
+          <div className={styles.eventInfo}>
+            <div className={styles.eventName}>Tech Summit 2026</div>
+            <div className={styles.eventMeta}>Feb 24–27 · Bengaluru</div>
+            <div className={styles.eventAttendees}>
+              <Icon name="group" size={14} fill color="var(--color-primary)" />
+              142 attendees
             </div>
           </div>
+          <Icon name="chevron_right" size={20} color="var(--color-on-surface-variant)" />
         </div>
 
-        {/* For You Section */}
+        {/* People at this event */}
         <div className={styles.section}>
-          <div className={styles.sectionHeader}>
-            <span className={styles.sectionLabel}>For You</span>
-            <button className={styles.seeAll}>
-              See all <Icon name="arrow_forward" size={14} />
-            </button>
+          <span className={styles.sectionLabel}>People at this event</span>
+          <div className={styles.cardList}>
+            <AttendeeCard
+              bestMatch
+              name="Mohammed Basith"
+              role="Product Designer"
+              company="Pickyourtrail"
+              bio="Building Product Hunt Kerala community. Want to meet Kerala-based startup founders."
+              tags={['Community', 'Product', 'Startups']}
+              avatarUrl="https://i.pravatar.cc/300?img=11"
+            />
+            <AttendeeCard
+              name="Sarah Kurian"
+              role="Product Manager"
+              company="Razorpay"
+              bio="Interested in fintech builders and design system leads."
+              avatarUrl="https://i.pravatar.cc/300?img=32"
+            />
+            <AttendeeCard
+              name="Arjun Mehta"
+              role="ML Engineer"
+              company="Google"
+              bio="Looking for collaborators on open-source ML tooling projects."
+              tags={['ML', 'Open Source']}
+              avatarUrl="https://i.pravatar.cc/300?img=59"
+            />
+            <AttendeeCard
+              name="Priya Nair"
+              role="Founder"
+              company="NexGen AI"
+              bio="Building AI tools for small businesses. Love connecting with other founders."
+              avatarUrl="https://i.pravatar.cc/300?img=25"
+            />
           </div>
-          <AttendeeCard
-            recommended
-            name="Mohammed Basith"
-            role="Product Designer"
-            company="Pickyourtrail"
-            bio="Building Product Hunt Kerala community. Want to meet Kerala-based startup founders."
-            tags={['Community', 'Product', 'Startups']}
-          />
-        </div>
-
-        {/* Everyone Section */}
-        <div className={styles.section}>
-          <div className={styles.sectionHeader}>
-            <span className={styles.sectionLabel}>Everyone</span>
-          </div>
-          <AttendeeCard
-            name="Sarah Kurian"
-            role="Product Manager"
-            company="Razorpay"
-            bio="Interested in fintech builders and design system leads."
-          />
         </div>
       </div>
     </ScreenShell>

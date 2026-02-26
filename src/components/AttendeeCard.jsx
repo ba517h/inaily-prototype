@@ -3,47 +3,47 @@ import Icon from './Icon';
 import styles from './AttendeeCard.module.css';
 
 /**
- * M3 Expressive Attendee Card
+ * M3 Expressive Attendee Card — Photo-First
  *
  * Props:
- * - recommended: boolean (uses primary-container bg + filled Connect)
  * - name: string
  * - role: string
  * - company: string
  * - bio: string
  * - tags: string[] (optional chips)
- * - avatarUrl: string (optional, falls back to initial)
+ * - avatarUrl: string (photo URL)
+ * - bestMatch: boolean (shows "Best Match" badge)
  * - onConnect: function
  * - onViewProfile: function
  */
 export default function AttendeeCard({
-  recommended = false,
   name,
   role,
   company,
   bio,
   tags,
   avatarUrl,
+  bestMatch = false,
   onConnect,
   onViewProfile,
 }) {
-  const initial = name ? name[0].toUpperCase() : '?';
-
   return (
-    <div className={`${styles.card} ${recommended ? styles.recommended : styles.regular}`}>
-      <div className={`${styles.hero} ${recommended ? styles.heroTall : ''}`}>
-        {avatarUrl ? (
-          <img src={avatarUrl} alt={name} className={styles.avatarImg} />
-        ) : (
-          <div className={`${styles.avatar} ${recommended ? styles.avatarLarge : ''}`}>{initial}</div>
+    <div className={styles.card}>
+      <div className={styles.photo}>
+        {avatarUrl && (
+          <img src={avatarUrl} alt={name} className={styles.photoImg} />
         )}
-        {recommended && (
-          <div className={styles.badge}><Icon name="star" size={14} fill /> Best Match</div>
+        {bestMatch && (
+          <div className={styles.badge}>
+            <Icon name="star" size={14} fill /> Best Match
+          </div>
         )}
       </div>
       <div className={styles.content}>
         <div className={styles.name}>{name}</div>
-        <div className={styles.role}>{role} {company ? `\u00B7 ${company}` : ''}</div>
+        <div className={styles.role}>
+          {role}{company ? ` \u00B7 ${company}` : ''}
+        </div>
         {bio && <div className={styles.bio}>{bio}</div>}
         {tags && tags.length > 0 && (
           <div className={styles.tags}>
@@ -55,12 +55,12 @@ export default function AttendeeCard({
         <div className={styles.actions}>
           <Button
             variant="outlined"
-            label={recommended ? 'Profile' : 'View'}
+            label="Profile"
             size="small"
             onClick={onViewProfile}
           />
           <Button
-            variant={recommended ? 'filled' : 'tonal'}
+            variant="filled"
             label="Connect"
             size="small"
             icon={<Icon name="person_add" size={18} fill />}

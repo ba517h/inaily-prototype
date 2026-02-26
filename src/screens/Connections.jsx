@@ -2,11 +2,11 @@ import { ScreenShell, BottomNav, ConnectionItem, Icon } from '../components';
 import styles from './Connections.module.css';
 
 const CONNECTIONS = [
-  { name: 'Alice Johnson', role: 'UX Researcher', company: 'Meta', time: 'Connected yesterday' },
-  { name: 'Ravi Shankar', role: 'Staff Engineer', company: 'Google', time: 'Connected 2d ago' },
-  { name: 'Emily Davis', role: 'Senior PM', company: 'Microsoft', time: 'Connected 3d ago' },
-  { name: 'Akash Patel', role: 'Design Lead', company: 'Swiggy', time: 'Connected 5d ago' },
-  { name: 'Priya Menon', role: 'Founder', company: 'NexGen AI', time: 'Connected 1w ago' },
+  { name: 'Alice Johnson', role: 'UX Researcher', company: 'Meta', time: 'Connected yesterday', avatarUrl: 'https://i.pravatar.cc/150?img=47' },
+  { name: 'Ravi Shankar', role: 'Staff Engineer', company: 'Google', time: 'Connected 2d ago', avatarUrl: 'https://i.pravatar.cc/150?img=52' },
+  { name: 'Emily Davis', role: 'Senior PM', company: 'Microsoft', time: 'Connected 3d ago', avatarUrl: 'https://i.pravatar.cc/150?img=23' },
+  { name: 'Akash Patel', role: 'Design Lead', company: 'Swiggy', time: 'Connected 5d ago', avatarUrl: 'https://i.pravatar.cc/150?img=14' },
+  { name: 'Priya Menon', role: 'Founder', company: 'NexGen AI', time: 'Connected 1w ago', avatarUrl: 'https://i.pravatar.cc/150?img=25' },
 ];
 
 export default function ConnectionsScreen() {
@@ -33,13 +33,13 @@ export default function ConnectionsScreen() {
 
         {/* Connection list */}
         <div className={styles.list}>
-          {CONNECTIONS.map((conn, i) => (
+          {CONNECTIONS.map((conn) => (
             <div key={conn.name} className={styles.connectionWrap}>
               <ConnectionItem
                 name={conn.name}
                 role={conn.role}
                 company={conn.company}
-                gradientIndex={i}
+                avatarUrl={conn.avatarUrl}
               />
               <span className={styles.time}>{conn.time}</span>
             </div>
