@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import PhoneFrame from './layouts/PhoneFrame';
+import Icon from './components/Icon';
 import Feed from './screens/Feed';
 import PhoneEntry from './screens/PhoneEntry';
 import OTPScreen from './screens/OTPScreen';
@@ -21,6 +22,7 @@ const SCREENS = [
 
 export default function App() {
   const [activeScreen, setActiveScreen] = useState(0);
+  const [theme, setTheme] = useState('light');
   const ActiveComponent = SCREENS[activeScreen].component;
 
   return (
@@ -31,7 +33,20 @@ export default function App() {
           <span className={styles.logoMark}>I</span>
           <span className={styles.logoText}>inaily</span>
         </div>
-        <div className={styles.badge}>M3 Expressive</div>
+        <div className={styles.headerRight}>
+          <div className={styles.badge}>M3 Expressive</div>
+          <button
+            className={styles.themeToggle}
+            onClick={() => setTheme(t => t === 'light' ? 'dark' : 'light')}
+            aria-label="Toggle theme"
+          >
+            <Icon
+              name={theme === 'light' ? 'dark_mode' : 'light_mode'}
+              size={18}
+              color="rgba(224, 214, 240, 0.8)"
+            />
+          </button>
+        </div>
       </div>
 
       {/* Tab Bar */}
@@ -48,7 +63,7 @@ export default function App() {
       </div>
 
       {/* Phone Frame — key triggers remount + entrance animation */}
-      <PhoneFrame label={SCREENS[activeScreen].label}>
+      <PhoneFrame label={SCREENS[activeScreen].label} dataTheme={theme}>
         <div key={SCREENS[activeScreen].id} className={styles.screenEnter}>
           <ActiveComponent />
         </div>

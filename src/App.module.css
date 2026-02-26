@@ -13,9 +13,10 @@
 /* ── Header ── */
 .header {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  gap: 8px;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 420px;
   margin-bottom: 24px;
 }
 
@@ -47,6 +48,12 @@
   letter-spacing: -0.5px;
 }
 
+.headerRight {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 .badge {
   font-family: var(--font-plain);
   font-size: 10px;
@@ -57,6 +64,25 @@
   padding: 3px 10px;
   border: 1px solid rgba(155, 127, 196, 0.2);
   border-radius: 999px;
+}
+
+.themeToggle {
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: background 200ms ease;
+}
+
+.themeToggle:hover {
+  background: rgba(255, 255, 255, 0.14);
 }
 
 /* ── Tabs ── */

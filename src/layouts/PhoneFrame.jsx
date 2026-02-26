@@ -7,8 +7,9 @@ import styles from './PhoneFrame.module.css';
  * - children: screen content
  * - label: optional label below the frame
  * - scale: number (default 1)
+ * - dataTheme: 'light' | 'dark' (scopes theme to phone content)
  */
-export default function PhoneFrame({ children, label, scale = 1 }) {
+export default function PhoneFrame({ children, label, scale = 1, dataTheme }) {
   return (
     <div className={styles.wrapper}>
       <div
@@ -16,7 +17,7 @@ export default function PhoneFrame({ children, label, scale = 1 }) {
         style={{ transform: `scale(${scale})`, transformOrigin: 'top center' }}
       >
         <div className={styles.dynamicIsland} />
-        <div className={styles.screen}>
+        <div className={styles.screen} data-theme={dataTheme}>
           {children}
         </div>
         <div className={styles.homeIndicator} />

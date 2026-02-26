@@ -1,5 +1,6 @@
 /* Inaily — Token System Entry Point */
 @import './colors.css';
+@import './colors-dark.css';
 @import './typography.css';
 @import './shapes.css';
 @import './spacing.css';
