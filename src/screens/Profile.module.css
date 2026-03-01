@@ -132,26 +132,31 @@
 /* ── Completion Bar ── */
 .completion {
   width: 100%;
-  margin-top: var(--spacing-xs);
+  margin-top: 4px;
+  padding-top: 16px;
+  border-top: 1px solid color-mix(in srgb, var(--color-on-primary-container) 12%, transparent);
 }
 
 .completionHeader {
   display: flex;
   justify-content: space-between;
-  margin-bottom: var(--spacing-xs);
+  align-items: baseline;
+  margin-bottom: 8px;
 }
 
 .completionLabel {
   font-family: var(--type-label-medium-family);
-  font-size: var(--type-label-medium-size);
-  color: var(--color-on-primary-container);
-  opacity: 0.7;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1px;
+  color: var(--color-on-surface);
 }
 
 .completionPercent {
   font-family: var(--type-title-large-family);
-  font-size: 20px;
+  font-size: 22px;
   font-weight: 800;
+  letter-spacing: -0.5px;
   color: var(--color-primary);
 }
 
@@ -222,8 +227,9 @@
   font-family: var(--type-body-small-family);
   font-size: 12px;
   color: var(--color-on-surface-variant);
-  margin-top: 8px;
-  opacity: 0.7;
+  margin-top: 10px;
+  line-height: 1.4;
+  opacity: 0.6;
 }
 
 /* ── Sections ── */

@@ -31,10 +31,10 @@ export default function Profile() {
                 </div>
               </div>
               <div className={styles.pill}>
-                <Icon name="event" size={20} fill color="var(--color-primary)" />
+                <Icon name="visibility" size={20} fill color="var(--color-primary)" />
                 <div className={styles.pillText}>
-                  <span className={styles.pillNumber}>3</span>
-                  <span className={styles.pillLabel}>events</span>
+                  <span className={styles.pillNumber}>47</span>
+                  <span className={styles.pillLabel}>views</span>
                 </div>
               </div>
             </div>

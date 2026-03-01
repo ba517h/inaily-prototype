@@ -1,0 +1,178 @@
+/* CodePanel — RN Code Preview, dark theme */
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: rgba(15, 13, 24, 0.95);
+  border-left: 1px solid rgba(255, 255, 255, 0.06);
+  font-family: var(--font-plain);
+  overflow: hidden;
+}
+
+/* ── Tab bar ── */
+.tabs {
+  display: flex;
+  gap: 0;
+  padding: 12px 12px 0;
+  flex-shrink: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.tab {
+  padding: 8px 16px;
+  border: none;
+  background: transparent;
+  color: rgba(211, 188, 253, 0.4);
+  font-family: var(--font-plain);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  transition: all 150ms ease;
+}
+
+.tab:hover {
+  color: rgba(211, 188, 253, 0.7);
+}
+
+.tabActive {
+  color: #D3BCFD;
+  border-bottom-color: #D3BCFD;
+  font-weight: 600;
+}
+
+/* ── Component chip picker ── */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  padding: 10px 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  flex-shrink: 0;
+}
+
+.chip {
+  padding: 4px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(211, 188, 253, 0.15);
+  background: transparent;
+  color: rgba(211, 188, 253, 0.5);
+  font-family: var(--font-plain);
+  font-size: 11px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 150ms ease;
+}
+
+.chip:hover {
+  border-color: rgba(211, 188, 253, 0.3);
+  color: rgba(211, 188, 253, 0.7);
+}
+
+.chipActive {
+  background: rgba(211, 188, 253, 0.12);
+  border-color: rgba(211, 188, 253, 0.3);
+  color: #D3BCFD;
+  font-weight: 600;
+}
+
+/* ── Code area ── */
+.codeArea {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 16px;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(211, 188, 253, 0.12) transparent;
+}
+
+.codeArea::-webkit-scrollbar {
+  width: 5px;
+}
+
+.codeArea::-webkit-scrollbar-thumb {
+  background: rgba(211, 188, 253, 0.12);
+  border-radius: 3px;
+}
+
+.codeBlock {
+  font-family: 'SF Mono', 'Fira Code', 'JetBrains Mono', monospace;
+  font-size: 12px;
+  line-height: 1.7;
+  color: rgba(230, 224, 233, 0.75);
+  white-space: pre-wrap;
+  word-break: break-word;
+  tab-size: 2;
+}
+
+/* ── Syntax highlighting tokens ── */
+.codeBlock :global(.hlComment) {
+  color: rgba(211, 188, 253, 0.3);
+  font-style: italic;
+}
+
+.codeBlock :global(.hlString) {
+  color: #A5D6A7;
+}
+
+.codeBlock :global(.hlNumber) {
+  color: #FFD54F;
+}
+
+.codeBlock :global(.hlKeyword) {
+  color: #CE93D8;
+}
+
+.codeBlock :global(.hlProp) {
+  color: #90CAF9;
+}
+
+.codeBlock :global(.hlBuiltin) {
+  color: #D3BCFD;
+  font-weight: 600;
+}
+
+/* ── Bottom bar ── */
+.bottomBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  flex-shrink: 0;
+}
+
+.fileName {
+  font-size: 11px;
+  font-family: 'SF Mono', 'Fira Code', monospace;
+  color: rgba(211, 188, 253, 0.3);
+}
+
+.copyBtn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid rgba(211, 188, 253, 0.15);
+  background: transparent;
+  color: rgba(211, 188, 253, 0.6);
+  font-family: var(--font-plain);
+  font-size: 11px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 150ms ease;
+}
+
+.copyBtn:hover {
+  border-color: rgba(211, 188, 253, 0.3);
+  color: #D3BCFD;
+  background: rgba(211, 188, 253, 0.06);
+}
+
+.copied {
+  color: #A5D6A7;
+  border-color: rgba(165, 214, 167, 0.3);
+}

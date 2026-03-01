@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import PhoneFrame from './layouts/PhoneFrame';
 import Icon from './components/Icon';
+import CodePanel from './components/CodePanel/CodePanel';
 import MyEvents from './screens/MyEvents';
 import Feed from './screens/Feed';
 import PhoneEntry from './screens/PhoneEntry';
@@ -135,6 +136,9 @@ export default function App() {
               </PhoneFrame>
             </>
           )}
+        </div>
+        <div className={styles.codePanel}>
+          <CodePanel screenId={SCREENS[activeScreen].id} specsMode={specsMode} />
         </div>
       </div>
     </div>

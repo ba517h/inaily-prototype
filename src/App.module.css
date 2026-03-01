@@ -152,6 +152,20 @@
   overflow: hidden;
 }
 
+/* ── Code Panel ── */
+.codePanel {
+  width: 380px;
+  flex-shrink: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+@media (max-width: 1200px) {
+  .codePanel {
+    display: none;
+  }
+}
+
 /* ── Page Transitions ── */
 .screenEnter {
   position: absolute;
