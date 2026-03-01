@@ -15,3 +15,6 @@ export { default as BottomNav } from './BottomNav';
 export { default as TopAppBar } from './TopAppBar';
 export { default as ScreenShell } from './ScreenShell';
 export { default as OnboardingShell } from './OnboardingShell';
+export { default as StatusBar } from './StatusBar';
+export { default as SearchField } from './SearchField';
+export { default as BottomSheet } from './BottomSheet';

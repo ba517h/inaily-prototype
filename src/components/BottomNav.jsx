@@ -2,8 +2,7 @@ import Icon from './Icon';
 import styles from './BottomNav.module.css';
 
 const NAV_ITEMS = [
-  { id: 'explore', icon: 'explore', label: 'Explore' },
-  { id: 'people', icon: 'group', label: 'People' },
+  { id: 'attendees', icon: 'person_search', label: 'Attendees' },
   { id: 'chat', icon: 'chat_bubble', label: 'Chat' },
   { id: 'profile', icon: 'person', label: 'Profile' },
 ];
@@ -12,10 +11,10 @@ const NAV_ITEMS = [
  * M3 Expressive Bottom Navigation
  *
  * Props:
- * - active: 'explore' | 'people' | 'chat' | 'profile'
+ * - active: 'attendees' | 'chat' | 'profile'
  * - onChange: (id: string) => void
  */
-export default function BottomNav({ active = 'explore', onChange }) {
+export default function BottomNav({ active = 'attendees', onChange }) {
   return (
     <nav className={styles.nav}>
       {NAV_ITEMS.map(item => {
@@ -32,7 +31,7 @@ export default function BottomNav({ active = 'explore', onChange }) {
                 name={item.icon}
                 size={24}
                 fill={isActive}
-                color={isActive ? 'var(--color-on-secondary-container)' : 'var(--color-on-surface-variant)'}
+                color={isActive ? 'var(--color-on-primary-container)' : 'var(--color-on-surface-variant)'}
               />
             </div>
             <span className={styles.label}>{item.label}</span>

@@ -1,47 +1,56 @@
-import { ScreenShell, BottomNav, ConnectionItem, Icon } from '../components';
+import { useState } from 'react';
+import { ScreenShell, ConnectionItem, StatusBar, SearchField, BottomNav } from '../components';
 import styles from './Connections.module.css';
 
 const CONNECTIONS = [
-  { name: 'Alice Johnson', role: 'UX Researcher', company: 'Meta', time: 'Connected yesterday', avatarUrl: 'https://i.pravatar.cc/150?img=47' },
-  { name: 'Ravi Shankar', role: 'Staff Engineer', company: 'Google', time: 'Connected 2d ago', avatarUrl: 'https://i.pravatar.cc/150?img=52' },
-  { name: 'Emily Davis', role: 'Senior PM', company: 'Microsoft', time: 'Connected 3d ago', avatarUrl: 'https://i.pravatar.cc/150?img=23' },
-  { name: 'Akash Patel', role: 'Design Lead', company: 'Swiggy', time: 'Connected 5d ago', avatarUrl: 'https://i.pravatar.cc/150?img=14' },
-  { name: 'Priya Menon', role: 'Founder', company: 'NexGen AI', time: 'Connected 1w ago', avatarUrl: 'https://i.pravatar.cc/150?img=25' },
+  { name: 'Alice Johnson', role: 'UX Researcher', company: 'Meta', time: 'yesterday', avatarUrl: 'https://i.pravatar.cc/150?img=47' },
+  { name: 'Ravi Shankar Krishnamurthy', role: 'Staff Engineer', company: 'Google DeepMind', time: '2d ago', avatarUrl: 'https://i.pravatar.cc/150?img=52' },
+  { name: 'Emily Davis', role: 'Senior PM', company: 'Microsoft', time: '3d ago', avatarUrl: 'https://i.pravatar.cc/150?img=23' },
+  { name: 'Mohammed Basith Kamaludeen', role: 'Sr. Product Designer', company: 'Pickyourtrail', time: '5d ago', avatarUrl: 'https://i.pravatar.cc/150?img=14' },
+  { name: 'Priya Menon', role: 'Founder', company: 'NexGen AI', time: '1w ago', avatarUrl: 'https://i.pravatar.cc/150?img=25' },
 ];
 
 export default function ConnectionsScreen() {
+  const [query, setQuery] = useState('');
+
+  const filtered = CONNECTIONS.filter((conn) => {
+    const q = query.toLowerCase();
+    return (
+      conn.name.toLowerCase().includes(q) ||
+      conn.role.toLowerCase().includes(q) ||
+      conn.company.toLowerCase().includes(q)
+    );
+  });
+
   return (
-    <ScreenShell
-      bottomNav={<BottomNav active="people" />}
-    >
+    <ScreenShell bottomNav={<BottomNav active="people" />}>
       <div className={styles.content}>
-        {/* Status bar spacer */}
-        <div className={styles.statusBar} />
+        <StatusBar />
 
         <div className={styles.header}>
           <h1 className={styles.title}>Connections</h1>
-          <p className={styles.subtitle}>5 people you've connected with</p>
+          <p className={styles.subtitle}>{filtered.length} people you've connected with</p>
         </div>
 
-        {/* Search bar */}
         <div className={styles.searchWrap}>
-          <div className={styles.searchBar}>
-            <Icon name="search" size={20} color="var(--color-on-surface-variant)" />
-            <span className={styles.searchPlaceholder}>Search connections...</span>
-          </div>
+          <SearchField
+            placeholder="Search connections..."
+            value={query}
+            onChange={setQuery}
+          />
         </div>
 
-        {/* Connection list */}
         <div className={styles.list}>
-          {CONNECTIONS.map((conn) => (
-            <div key={conn.name} className={styles.connectionWrap}>
+          {filtered.map((conn, i) => (
+            <div key={conn.name} className={styles.connectionItem} style={{ animationDelay: `${120 + i * 50}ms` }}>
               <ConnectionItem
                 name={conn.name}
                 role={conn.role}
                 company={conn.company}
                 avatarUrl={conn.avatarUrl}
+                time={conn.time}
               />
-              <span className={styles.time}>{conn.time}</span>
+              {i < filtered.length - 1 && <div className={styles.divider} />}
             </div>
           ))}
         </div>

@@ -6,12 +6,13 @@
 }
 
 .field {
-  margin-bottom: var(--spacing-xl);
+  margin-bottom: var(--spacing-3xl);
 }
 
 .examples {
   display: flex;
   flex-direction: column;
+  gap: var(--spacing-md);
 }
 
 .examplesLabel {
@@ -24,6 +25,3 @@
   margin-bottom: var(--spacing-md);
 }
 
-.exampleGap {
-  height: var(--spacing-sm);
-}

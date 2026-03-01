@@ -11,11 +11,9 @@ import styles from './PhoneFrame.module.css';
  */
 export default function PhoneFrame({ children, label, scale = 1, dataTheme }) {
   return (
-    <div className={styles.wrapper}>
-      <div
-        className={styles.frame}
-        style={{ transform: `scale(${scale})`, transformOrigin: 'top center' }}
-      >
+    <div className={styles.wrapper}
+      style={{ transform: `scale(${scale})`, transformOrigin: 'center center' }}>
+      <div className={styles.frame}>
         <div className={styles.dynamicIsland} />
         <div className={styles.screen} data-theme={dataTheme}>
           {children}

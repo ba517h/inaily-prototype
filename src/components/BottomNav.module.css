@@ -39,8 +39,12 @@
   transition: all var(--duration-medium-2) var(--ease-emphasized-decel);
 }
 
+.item:hover .pill {
+  background-color: rgba(104, 84, 142, 0.08);
+}
+
 .active .pill {
-  background-color: var(--color-secondary-container);
+  background-color: var(--color-primary-container);
 }
 
 .label {

@@ -23,20 +23,20 @@
   /* ── Tertiary ── */
   --color-tertiary: #7E525E;
   --color-on-tertiary: #FFFFFF;
-  --color-tertiary-container: #FFD9E0;
+  --color-tertiary-container: #FFDAD0;
   --color-on-tertiary-container: #31101B;
 
   /* ── Error ── */
-  --color-error: #BA1A1A;
+  --color-error: #C62857;
   --color-on-error: #FFFFFF;
-  --color-error-container: #FFDAD6;
-  --color-on-error-container: #410002;
+  --color-error-container: #FFD9E2;
+  --color-on-error-container: #3B0A1A;
 
   /* ── Success ── */
-  --color-success: #386A20;
+  --color-success: #00796B;
   --color-on-success: #FFFFFF;
-  --color-success-container: #B8F397;
-  --color-on-success-container: #072100;
+  --color-success-container: #B2DFDB;
+  --color-on-success-container: #004D40;
 
   /* ── Warning ── */
   --color-warning: #7C5800;
@@ -56,10 +56,10 @@
   --color-surface-variant: #E7E0EB;
   --color-on-surface-variant: #49454E;
   --color-surface-container-lowest: #FFFFFF;
-  --color-surface-container-low: #F8F1FA;
-  --color-surface-container: #F2ECF4;
-  --color-surface-container-high: #EDE6EE;
-  --color-surface-container-highest: #E7E0E8;
+  --color-surface-container-low: #F5EDF7;
+  --color-surface-container: #EDE5F0;
+  --color-surface-container-high: #E4DCE8;
+  --color-surface-container-highest: #DBD3E0;
   --color-surface-dim: #DED8E0;
   --color-surface-bright: #FEF7FF;
   --color-surface-tint: #68548E;

@@ -1,17 +1,25 @@
 /* M3 Expressive Attendee Card — Photo-First */
 
 .card {
-  background-color: var(--color-surface-container-low);
+  background-color: var(--color-surface-container-lowest);
+  border: 1px solid var(--color-outline-variant);
   border-radius: var(--shape-lg);
   overflow: hidden;
   width: 100%;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04);
   transition: transform var(--transition-enter);
+  cursor: pointer;
 }
 
 .card:hover {
   transform: translateY(-3px) scale(1.005);
   box-shadow: 0 12px 32px rgba(0, 0, 0, 0.10), 0 2px 8px rgba(104, 84, 142, 0.08);
   transition: all var(--transition-expressive-enter);
+}
+
+.card:active {
+  transform: translateY(-1px) scale(0.99);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 /* ── Photo Area ── */
@@ -34,7 +42,8 @@
   right: var(--spacing-md);
   background-color: var(--color-tertiary-container);
   color: var(--color-on-tertiary-container);
-  padding: var(--spacing-xs) var(--spacing-md);
+  padding: 6px 14px;
+  min-height: 28px;
   border-radius: var(--shape-full);
   font-family: var(--type-label-small-family);
   font-size: var(--type-label-small-size);
@@ -86,8 +95,10 @@
 }
 
 .tag {
-  display: inline-block;
-  padding: 2px var(--spacing-sm);
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 14px;
+  min-height: 28px;
   border-radius: var(--shape-sm);
   font-family: var(--type-label-small-family);
   font-size: var(--type-label-small-size);
@@ -95,6 +106,27 @@
   letter-spacing: var(--type-label-small-tracking);
   background-color: rgba(104, 84, 142, 0.08);
   color: var(--color-on-surface-variant);
+}
+
+/* ── Relevance Variant ── */
+.reasons {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-lg);
+}
+
+.reasonRow {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.reasonText {
+  font-family: var(--type-body-small-family);
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--color-on-surface);
 }
 
 .actions {

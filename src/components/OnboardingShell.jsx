@@ -1,4 +1,4 @@
-import { ScreenShell, PBar, Icon } from './';
+import { ScreenShell, PBar, Icon, StatusBar } from './';
 import styles from './OnboardingShell.module.css';
 
 /**
@@ -15,16 +15,20 @@ import styles from './OnboardingShell.module.css';
 export default function OnboardingShell({ step, total = 7, headline, subtext, children, bottom }) {
   return (
     <ScreenShell
+      scrollable={false}
       topBar={
-        <div className={styles.topRow}>
-          <button className={styles.backBtn} aria-label="Go back">
-            <Icon name="arrow_back" size={24} color="var(--color-on-surface)" />
-          </button>
-          <div className={styles.progressWrap}>
-            <PBar current={step} total={total} />
+        <>
+          <StatusBar />
+          <div className={styles.topRow}>
+            <button className={styles.backBtn} aria-label="Go back">
+              <Icon name="arrow_back" size={24} color="var(--color-on-surface)" />
+            </button>
+            <div className={styles.progressWrap}>
+              <PBar current={step} total={total} />
+            </div>
+            <div className={styles.spacer} />
           </div>
-          <div className={styles.spacer} />
-        </div>
+        </>
       }
     >
       <div className={styles.content}>

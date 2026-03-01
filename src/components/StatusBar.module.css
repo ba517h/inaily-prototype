@@ -1,0 +1,40 @@
+/* iOS-style Status Bar */
+
+.statusBar {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px 24px 0;
+  flex-shrink: 0;
+  pointer-events: none;
+  user-select: none;
+}
+
+.light {
+  color: var(--color-on-surface);
+}
+
+.dark {
+  color: #ffffff;
+}
+
+.time {
+  font-size: 15px;
+  font-weight: 600;
+  font-family: var(--type-body-medium-family);
+  min-width: 54px;
+  line-height: 1;
+}
+
+.notchSpacer {
+  width: 126px;
+}
+
+.indicators {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  min-width: 54px;
+  justify-content: flex-end;
+}

@@ -13,6 +13,10 @@
   transition: border-color var(--transition-micro);
 }
 
+.container:hover:not(.focused):not(.disabled) {
+  background-color: color-mix(in srgb, var(--color-surface-container-highest) 80%, var(--color-on-surface) 4%);
+}
+
 .focused {
   border-bottom: 2px solid var(--color-primary);
   padding-bottom: calc(var(--spacing-sm) - 1px); /* compensate for thicker border */

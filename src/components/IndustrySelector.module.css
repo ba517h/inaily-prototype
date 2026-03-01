@@ -10,7 +10,8 @@
   gap: var(--spacing-md);
   padding: var(--spacing-lg) var(--spacing-xl);
   border-radius: var(--shape-lg-increased);
-  background-color: var(--color-surface-container-low);
+  background-color: var(--color-surface-container-lowest);
+  border: 1px solid var(--color-outline-variant);
   cursor: pointer;
   transition: all var(--duration-medium-1) var(--ease-emphasized-decel);
   user-select: none;
@@ -27,8 +28,8 @@
 
 .selected {
   background-color: var(--color-primary);
-  transform: scale(1.02);
   box-shadow: 0 4px 16px rgba(104, 84, 142, 0.3);
+  border-color: transparent;
 }
 
 .radio {

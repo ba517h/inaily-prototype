@@ -8,6 +8,9 @@
 .frame {
   width: 375px;
   height: 812px;
+  min-height: 812px;
+  max-height: 812px;
+  flex-shrink: 0;
   border-radius: 50px;
   background-color: #111111;
   padding: 10px;

@@ -4,38 +4,67 @@
   padding-bottom: var(--spacing-lg);
 }
 
-.statusBar {
-  height: 50px;
-}
-
 /* ── Hero Card ── */
 .heroCard {
-  margin: 0 var(--spacing-lg);
-  padding: var(--spacing-2xl);
-  background-color: var(--color-primary-container);
-  border-radius: var(--shape-xl-increased);
+  position: relative;
+  overflow: hidden;
+  animation: fadeSlideIn 400ms var(--ease-expressive-spatial) both;
+}
+
+.heroBg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    180deg,
+    color-mix(in srgb, var(--color-primary-container) 80%, var(--color-tertiary-container)) 0%,
+    var(--color-surface) 100%
+  );
+}
+
+.heroContent {
+  position: relative;
+  padding: var(--spacing-2xl) var(--spacing-xl);
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: var(--spacing-md);
-  animation: fadeSlideIn 400ms var(--ease-expressive-spatial) both;
+}
+
+.avatarWrap {
+  position: relative;
+  display: inline-flex;
 }
 
 .avatar {
-  width: 80px;
-  height: 80px;
-  border-radius: var(--shape-full);
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
   background: linear-gradient(135deg, var(--color-primary), var(--color-tertiary));
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 0 0 3px var(--color-surface), 0 0 0 5px var(--color-primary);
 }
 
 .avatarLetter {
   font-family: var(--font-brand);
-  font-size: 32px;
+  font-size: 40px;
   font-weight: 800;
   color: white;
+}
+
+.cameraBadge {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--color-surface);
+  border: 2px solid var(--color-primary-container);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .heroInfo {
@@ -60,10 +89,50 @@
   margin: 2px 0 0;
 }
 
+/* ── Stats Pills ── */
+.statsPills {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  width: 100%;
+}
+
+.pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 20px;
+  border-radius: 16px;
+  background: var(--color-surface-container-lowest);
+  border: 1px solid var(--color-outline-variant);
+  min-width: 130px;
+  justify-content: center;
+}
+
+.pillText {
+  display: flex;
+  flex-direction: column;
+}
+
+.pillNumber {
+  font-family: var(--font-brand);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-on-surface);
+  line-height: 1.2;
+}
+
+.pillLabel {
+  font-family: var(--type-label-small-family);
+  font-size: 12px;
+  color: var(--color-on-surface-variant);
+  line-height: 1.2;
+}
+
 /* ── Completion Bar ── */
 .completion {
   width: 100%;
-  margin-top: var(--spacing-sm);
+  margin-top: var(--spacing-xs);
 }
 
 .completionHeader {
@@ -106,7 +175,7 @@
 .completionFill {
   height: 100%;
   border-radius: var(--shape-full);
-  background-color: var(--color-primary);
+  background: linear-gradient(90deg, var(--color-primary), var(--color-tertiary));
   position: relative;
   overflow: hidden;
   animation: fillBar 800ms var(--ease-expressive-spatial) 300ms both;
@@ -122,7 +191,7 @@
 
 /* ── Sections ── */
 .section {
-  padding: var(--spacing-xl) var(--spacing-lg) 0;
+  padding: var(--spacing-xl) var(--spacing-xl) 0;
   animation: fadeSlideIn 400ms var(--ease-expressive-spatial) both;
 }
 
@@ -135,15 +204,17 @@
 }
 
 .sectionTitle {
-  font-family: var(--type-title-medium-family);
-  font-size: var(--type-title-medium-size);
-  font-weight: var(--type-title-medium-weight-emphasized);
-  color: var(--color-on-surface);
-  margin: 0 0 var(--spacing-md);
+  font-family: var(--type-label-medium-family);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.2px;
+  color: var(--color-primary);
+  margin: 0 0 var(--spacing-sm);
 }
 
 .rows {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-sm);
+  gap: 0;
 }

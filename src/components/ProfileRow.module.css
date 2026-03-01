@@ -1,10 +1,21 @@
 .row {
-  background-color: var(--color-surface-container-low);
-  border-radius: var(--shape-md);
-  padding: var(--spacing-md) var(--spacing-lg);
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  padding: var(--spacing-md) 0;
   display: flex;
   align-items: center;
   gap: var(--spacing-md);
+  cursor: pointer;
+  transition: all var(--transition-micro);
+}
+
+.row:hover {
+  background-color: rgba(29, 27, 32, 0.04);
+}
+
+.row:active {
+  transform: scale(0.98);
 }
 
 .iconBox {
@@ -29,7 +40,7 @@
   font-size: var(--type-label-medium-size);
   font-weight: var(--type-label-large-weight-emphasized);
   line-height: var(--type-label-medium-line-height);
-  color: var(--color-primary);
+  color: var(--color-on-surface-variant);
 }
 
 .value {
@@ -42,4 +53,10 @@
 .valueEmpty {
   color: var(--color-on-surface-variant);
   font-style: italic;
+}
+
+.divider {
+  height: 1px;
+  background: color-mix(in srgb, var(--color-outline-variant) 40%, transparent);
+  margin-left: 52px;
 }

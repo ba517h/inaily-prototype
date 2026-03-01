@@ -1,24 +1,24 @@
 /* Connections Screen — People Tab */
 
 .content {
-  padding-bottom: var(--spacing-lg);
-}
-
-.statusBar {
-  height: 50px;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
 }
 
 .header {
   padding: var(--spacing-sm) var(--spacing-2xl) var(--spacing-lg);
   animation: fadeSlideIn 400ms var(--ease-expressive-spatial) both;
+  flex-shrink: 0;
 }
 
 .title {
   font-family: var(--type-headline-medium-family);
-  font-size: var(--type-headline-medium-size);
+  font-size: 24px;
   font-weight: 800;
   line-height: var(--type-headline-medium-line-height);
-  letter-spacing: -1.5px;
+  letter-spacing: -1px;
   color: var(--color-on-surface);
   margin: 0 0 2px;
 }
@@ -30,60 +30,30 @@
   margin: 0;
 }
 
-/* ── Search Bar ── */
+/* ── Search ── */
 .searchWrap {
-  padding: 0 var(--spacing-lg) var(--spacing-lg);
+  padding: 0 20px 12px;
   animation: fadeSlideIn 400ms var(--ease-expressive-spatial) 60ms both;
-}
-
-.searchBar {
-  display: flex;
-  align-items: center;
-  gap: var(--spacing-sm);
-  height: 48px;
-  padding: 0 var(--spacing-lg);
-  background-color: var(--color-surface-container-high);
-  border-radius: var(--shape-full);
-  cursor: text;
-  transition: all var(--transition-expressive-micro);
-  transform-origin: center;
-}
-
-.searchBar:focus-within {
-  transform: scaleX(1.02);
-  box-shadow: 0 2px 12px rgba(104, 84, 142, 0.15);
-}
-
-.searchPlaceholder {
-  font-family: var(--type-body-large-family);
-  font-size: var(--type-body-medium-size);
-  color: var(--color-on-surface-variant);
+  flex-shrink: 0;
 }
 
 /* ── List ── */
 .list {
+  flex: 1;
+  overflow-y: auto;
+  scrollbar-width: none;
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-sm);
-  padding: 0 var(--spacing-lg);
+  gap: 0;
+  padding: 0;
 }
 
-.connectionWrap {
-  position: relative;
+.connectionItem {
   animation: fadeSlideIn 400ms var(--ease-expressive-spatial) both;
 }
 
-.connectionWrap:nth-child(1) { animation-delay: 120ms; }
-.connectionWrap:nth-child(2) { animation-delay: 170ms; }
-.connectionWrap:nth-child(3) { animation-delay: 220ms; }
-.connectionWrap:nth-child(4) { animation-delay: 270ms; }
-.connectionWrap:nth-child(5) { animation-delay: 320ms; }
-
-.time {
-  position: absolute;
-  top: var(--spacing-md);
-  right: var(--spacing-lg);
-  font-family: var(--type-label-small-family);
-  font-size: var(--type-label-small-size);
-  color: var(--color-on-surface-variant);
+.divider {
+  height: 1px;
+  background: color-mix(in srgb, var(--color-outline-variant) 40%, transparent);
+  margin-left: 86px;
 }

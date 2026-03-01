@@ -3,7 +3,7 @@ import { Button, OutlinedField, OnboardingShell, Icon } from '../components';
 import styles from './PhoneEntry.module.css';
 
 export default function PhoneEntry() {
-  const [phone, setPhone] = useState('7012044388');
+  const [phone, setPhone] = useState('');
   const [showNumber, setShowNumber] = useState(true);
 
   return (
@@ -21,14 +21,19 @@ export default function PhoneEntry() {
         />
       }
     >
-      <div className={styles.field}>
-        <OutlinedField
-          label="Phone Number"
-          value={phone}
-          onChange={setPhone}
-          prefix="+91"
-          focused
-        />
+      <div className={styles.phoneRow}>
+        <button className={styles.isdPicker}>
+          <span className={styles.isdFlag}>🇮🇳</span>
+          <span className={styles.isdCode}>+91</span>
+          <Icon name="expand_more" size={18} color="var(--color-on-surface-variant)" />
+        </button>
+        <div className={styles.phoneField}>
+          <OutlinedField
+            label="Phone Number"
+            value={phone}
+            onChange={setPhone}
+          />
+        </div>
       </div>
 
       {/* Toggle */}

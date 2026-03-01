@@ -27,16 +27,16 @@
   --color-on-tertiary-container: #FFD8E4;
 
   /* ── Error ── */
-  --color-error: #F2B8B5;
+  --color-error: #FFB1C8;
   --color-on-error: #601410;
-  --color-error-container: #8C1D18;
-  --color-on-error-container: #F9DEDC;
+  --color-error-container: #5D1133;
+  --color-on-error-container: #FFD9E2;
 
   /* ── Success ── */
-  --color-success: #7DD95F;
+  --color-success: #4DB6AC;
   --color-on-success: #0B3900;
-  --color-success-container: #1E3A14;
-  --color-on-success-container: #B8F397;
+  --color-success-container: #1A3A36;
+  --color-on-success-container: #B2DFDB;
 
   /* ── Warning ── */
   --color-warning: #F5BF48;

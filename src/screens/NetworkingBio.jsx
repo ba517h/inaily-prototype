@@ -29,7 +29,6 @@ export default function NetworkingBio() {
           quote="I want to meet people working on LLMs and training infrastructure"
           result="Connected with 5 engineers"
         />
-        <div className={styles.exampleGap} />
         <ExampleCard
           type="bad"
           name="Priya"

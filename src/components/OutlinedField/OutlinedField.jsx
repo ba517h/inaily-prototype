@@ -45,7 +45,7 @@ export default function OutlinedField({
 
   return (
     <div
-      className={`${styles.container} ${isFocused ? styles.focused : ''} ${disabled ? styles.disabled : ''}`}
+      className={`${styles.container} ${isFocused ? styles.focused : ''} ${disabled ? styles.disabled : ''} ${multiline ? styles.multiline : ''}`}
       onClick={handleContainerClick}
     >
       {prefix && (

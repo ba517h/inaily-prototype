@@ -13,6 +13,10 @@
               box-shadow 200ms cubic-bezier(0.05, 0.7, 0.1, 1.0);
 }
 
+.container:hover:not(.focused):not(.disabled) {
+  border-color: var(--color-on-surface);
+}
+
 .container.focused {
   border-color: var(--color-primary);
   border-width: 2px;
@@ -119,6 +123,10 @@
   line-height: 1.5;
   padding-top: 22px;
 }
+
+.container.multiline .fieldWrap { align-items: flex-start; }
+.container.multiline .label { top: 16px; transform: none; }
+.container.multiline .labelFloating { top: -1px; transform: translateY(-50%) scale(1); }
 
 /* ── Suffix ── */
 .suffix {

@@ -1,11 +1,16 @@
 import { useState } from 'react';
-import { Button, OutlinedField, IndustrySelector, OnboardingShell, Icon } from '../components';
+import { Button, SearchField, IndustrySelector, OnboardingShell } from '../components';
 import styles from './IndustrySelect.module.css';
 
 const INDUSTRIES = ['Edutech', 'Exporting', 'Fintech', 'Health & Wellness', 'Media', 'SaaS'];
 
 export default function IndustrySelect() {
   const [selected, setSelected] = useState('Fintech');
+  const [query, setQuery] = useState('');
+
+  const filtered = INDUSTRIES.filter((ind) =>
+    ind.toLowerCase().includes(query.toLowerCase())
+  );
 
   return (
     <OnboardingShell
@@ -16,20 +21,18 @@ export default function IndustrySelect() {
       bottom={<Button variant="filled" label="Continue" fullWidth />}
     >
       <div className={styles.search}>
-        <OutlinedField
-          label="Search industries"
-          value=""
-          suffix={<Icon name="search" size={20} color="var(--color-on-surface-variant)" />}
+        <SearchField
+          placeholder="Search industries"
+          value={query}
+          onChange={setQuery}
         />
       </div>
 
-      <div className={styles.list}>
-        <IndustrySelector
-          options={INDUSTRIES}
-          selected={selected}
-          onSelect={setSelected}
-        />
-      </div>
+      <IndustrySelector
+        options={filtered}
+        selected={selected}
+        onSelect={setSelected}
+      />
     </OnboardingShell>
   );
 }

@@ -1,0 +1,298 @@
+/* ChatList Screen — Chat Tab */
+
+.content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* ── Header ── */
+.header {
+  padding: var(--spacing-sm) var(--spacing-2xl) 0;
+  animation: fadeSlideIn 400ms var(--ease-expressive-spatial) both;
+  flex-shrink: 0;
+}
+
+.title {
+  font-family: var(--type-headline-medium-family);
+  font-size: 24px;
+  font-weight: 800;
+  line-height: var(--type-headline-medium-line-height);
+  letter-spacing: -1px;
+  color: var(--color-on-surface);
+  margin: 0;
+}
+
+/* ── Status Selector ── */
+.statusSelector {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin: 8px 20px 0;
+  padding: 10px 16px;
+  min-height: 40px;
+  background-color: var(--color-surface-container-low);
+  border: 1px solid var(--color-outline-variant);
+  border-radius: var(--shape-full);
+  cursor: pointer;
+  align-self: flex-start;
+  transition: background-color var(--transition-micro);
+  animation: fadeSlideIn 400ms var(--ease-expressive-spatial) 40ms both;
+}
+
+.statusSelector:hover {
+  background-color: var(--color-surface-container);
+}
+
+.statusLabel {
+  font-family: var(--type-label-medium-family);
+  font-size: var(--type-label-medium-size);
+  color: var(--color-on-surface-variant);
+}
+
+.statusValue {
+  font-family: var(--type-label-medium-family);
+  font-size: var(--type-label-medium-size);
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+/* ── Search ── */
+.searchWrap {
+  padding: 12px 20px;
+  animation: fadeSlideIn 400ms var(--ease-expressive-spatial) 60ms both;
+  flex-shrink: 0;
+}
+
+/* ── List ── */
+.list {
+  flex: 1;
+  overflow-y: auto;
+  scrollbar-width: none;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Section Label ── */
+.sectionLabel {
+  font-family: var(--type-label-large-family);
+  font-size: var(--type-label-small-size);
+  font-weight: 600;
+  color: var(--color-on-surface-variant);
+  letter-spacing: 1.5px;
+  padding: 12px 20px 6px;
+}
+
+/* ── Shared Chat Row ── */
+.chatRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 14px 20px;
+  cursor: pointer;
+  transition: background-color var(--transition-micro);
+  animation: fadeSlideIn 400ms var(--ease-expressive-spatial) both;
+}
+
+.chatRow:hover { background-color: var(--color-surface-container-low); }
+.chatRow:active { background-color: var(--color-surface-container); }
+
+.chatAvatar {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--shape-full);
+  object-fit: cover;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.chatContent {
+  flex: 1;
+  min-width: 0;
+  border-bottom: 1px solid color-mix(in srgb, var(--color-outline-variant) 50%, transparent);
+  padding-bottom: 14px;
+}
+
+.chatRow:last-child .chatContent {
+  border-bottom: none;
+}
+
+.chatName {
+  font-family: var(--type-title-medium-family);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-on-surface);
+  line-height: 1.3;
+}
+
+.chatDesignation {
+  font-family: var(--type-body-medium-family);
+  font-size: 13px;
+  color: var(--color-on-surface-variant);
+  line-height: 1.3;
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.chatMessage {
+  font-family: var(--type-body-medium-family);
+  font-size: 13px;
+  color: var(--color-on-surface-variant);
+  opacity: 0.75;
+  line-height: 1.4;
+  margin-top: 8px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Request messages: 2-line clamp, no italic */
+.chatMessage.request {
+  white-space: normal;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+/* Message row meta (time + chevron) */
+.chatMeta {
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  margin-top: 2px;
+}
+
+.chatTime {
+  font-family: var(--type-label-small-family);
+  font-size: var(--type-label-small-size);
+  color: var(--color-on-surface-variant);
+  white-space: nowrap;
+}
+
+/* ── Request Actions ── */
+.requestActions {
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.acceptBtn {
+  padding: 8px 24px;
+  border-radius: 20px;
+  background-color: var(--color-primary);
+  color: var(--color-on-primary);
+  border: none;
+  cursor: pointer;
+  font-family: var(--type-label-large-family);
+  font-size: var(--type-label-medium-size);
+  font-weight: 600;
+  transition: transform 150ms cubic-bezier(0.05, 0.7, 0.1, 1.0);
+}
+
+.acceptBtn:active {
+  transform: scale(0.95);
+}
+
+.declineBtn {
+  padding: 8px 24px;
+  border-radius: 20px;
+  background: transparent;
+  color: var(--color-on-surface-variant);
+  border: 1px solid var(--color-outline-variant);
+  cursor: pointer;
+  font-family: var(--type-label-large-family);
+  font-size: var(--type-label-medium-size);
+  font-weight: 500;
+  transition: transform 150ms cubic-bezier(0.05, 0.7, 0.1, 1.0);
+}
+
+.declineBtn:active {
+  transform: scale(0.95);
+}
+
+/* ── Off Banner ── */
+.offBanner {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 4px 20px 8px;
+  padding: 12px 16px;
+  background-color: var(--color-surface-container-low);
+  border-radius: var(--shape-md);
+  font-family: var(--type-body-small-family);
+  font-size: var(--type-body-small-size);
+  color: var(--color-on-surface-variant);
+  animation: fadeSlideIn 400ms var(--ease-expressive-spatial) both;
+}
+
+/* ── Bottom Sheet Option Cards ── */
+.optionCard {
+  display: flex;
+  align-items: flex-start;
+  gap: 14px;
+  padding: 14px 16px;
+  border-radius: var(--shape-md);
+  border: 1.5px solid var(--color-outline-variant);
+  background: transparent;
+  cursor: pointer;
+  text-align: left;
+  width: 100%;
+  transition: all 150ms var(--ease-emphasized-decel);
+}
+
+.optionCard:hover {
+  background: color-mix(in srgb, var(--color-primary) 4%, transparent);
+}
+
+.optionSelected {
+  border-color: var(--color-primary);
+  background: color-mix(in srgb, var(--color-primary) 8%, transparent);
+}
+
+.optionRadio {
+  width: 20px;
+  height: 20px;
+  border-radius: var(--shape-full);
+  border: 2px solid var(--color-outline);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  margin-top: 1px;
+}
+
+.optionSelected .optionRadio {
+  border-color: var(--color-primary);
+}
+
+.optionDot {
+  width: 10px;
+  height: 10px;
+  border-radius: var(--shape-full);
+  background-color: var(--color-primary);
+}
+
+.optionText {
+  flex: 1;
+}
+
+.optionLabel {
+  font-family: var(--type-title-medium-family);
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--color-on-surface);
+  line-height: 1.3;
+}
+
+.optionDesc {
+  font-family: var(--type-body-small-family);
+  font-size: var(--type-body-small-size);
+  color: var(--color-on-surface-variant);
+  margin-top: 2px;
+  line-height: 1.4;
+}

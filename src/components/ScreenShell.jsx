@@ -9,11 +9,11 @@ import styles from './ScreenShell.module.css';
  * - children: screen content
  * - className: optional additional class
  */
-export default function ScreenShell({ topBar, bottomNav, children, className = '' }) {
+export default function ScreenShell({ topBar, bottomNav, children, className = '', scrollable = true }) {
   return (
     <div className={styles.shell}>
       {topBar}
-      <main className={`${styles.content} ${className}`}>
+      <main className={`${styles.content} ${!scrollable ? styles.noScroll : ''} ${className}`}>
         {children}
       </main>
       {bottomNav}
