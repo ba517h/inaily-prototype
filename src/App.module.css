@@ -166,6 +166,50 @@
   }
 }
 
+/* ── Mobile Blocker ── */
+.mobileBlocker {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: var(--color-surface);
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  text-align: center;
+  gap: 12px;
+}
+
+.blockerIcon {
+  font-size: 48px;
+  margin-bottom: 8px;
+}
+
+.blockerTitle {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-on-surface);
+  margin: 0;
+}
+
+.blockerText {
+  font-size: 14px;
+  color: var(--color-on-surface-variant);
+  max-width: 280px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+@media (max-width: 900px) {
+  .mobileBlocker {
+    display: flex;
+  }
+  .main {
+    display: none;
+  }
+}
+
 /* ── Page Transitions ── */
 .screenEnter {
   position: absolute;

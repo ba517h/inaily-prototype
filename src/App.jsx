@@ -81,6 +81,11 @@ export default function App() {
 
   return (
     <div className={styles.gallery}>
+      <div className={styles.mobileBlocker}>
+        <span className={styles.blockerIcon}>💻</span>
+        <h2 className={styles.blockerTitle}>Open on desktop</h2>
+        <p className={styles.blockerText}>This prototype isn't responsive yet. Please open it on a desktop browser for the best experience.</p>
+      </div>
       <div className={styles.main}>
         <nav className={styles.sidebar}>
           <div className={styles.sidebarLogo}>
