@@ -17,15 +17,40 @@ export default function ChatConversation({
   mode = 'open',
   userName = 'Alice Johnson',
   userAvatar = 'https://i.pravatar.cc/150?img=47',
+  userRole = '',
+  userCompany = '',
+  startSent = false,
+  prefilledMessage = '',
+  initialIncomingMessage = '',
 }) {
-  const [messages, setMessages] = useState(mode === 'open' ? INITIAL_MESSAGES : []);
+  const [subtitleIndex, setSubtitleIndex] = useState(0);
+  const isOnline = mode === 'open';
+
+  const [messages, setMessages] = useState(
+    startSent
+      ? [{ type: 'outgoing', text: prefilledMessage }]
+      : mode === 'open'
+        ? INITIAL_MESSAGES
+        : []
+  );
   const [message, setMessage] = useState('');
-  const [conversationMode, setConversationMode] = useState(mode);
+  const [conversationMode, setConversationMode] = useState(
+    startSent ? 'request-sent' : mode
+  );
   const messagesEndRef = useRef(null);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages]);
+
+  useEffect(() => {
+    if (!isOnline) return;
+    const durations = [3000, 5000];
+    const timer = setTimeout(() => {
+      setSubtitleIndex(prev => prev + 1);
+    }, durations[subtitleIndex % 2]);
+    return () => clearTimeout(timer);
+  }, [subtitleIndex, isOnline]);
 
   const firstName = userName.split(' ')[0];
 
@@ -47,6 +72,7 @@ export default function ChatConversation({
   };
 
   const isInputDisabled = conversationMode === 'request-sent';
+  const showLock = conversationMode === 'request' || conversationMode === 'request-sent';
 
   return (
     <ScreenShell scrollable={false}>
@@ -64,18 +90,22 @@ export default function ChatConversation({
             className={styles.headerAvatar}
           />
           <div className={styles.headerInfo}>
-            <span className={styles.headerName}>{userName}</span>
-            {mode === 'open' ? (
-              <div className={styles.headerStatus}>
-                <span className={styles.onlineDot} />
-                Online
-              </div>
-            ) : (
-              <div className={styles.requestBadge}>
-                <Icon name="lock" size={14} color="var(--color-on-secondary-container)" />
-                Request
-              </div>
-            )}
+            <div className={styles.headerNameRow}>
+              <span className={styles.headerName}>{userName}</span>
+              {showLock && (
+                <Icon name="lock" size={16} color="var(--color-on-surface-variant)" />
+              )}
+            </div>
+            {isOnline ? (
+              <span className={styles.headerSubtitle} key={subtitleIndex}>
+                {subtitleIndex % 2 === 0 && <span className={styles.onlineDot} />}
+                {subtitleIndex % 2 === 0 ? 'Online' : `${userRole} \u00B7 ${userCompany}`}
+              </span>
+            ) : userRole ? (
+              <span className={styles.headerSubtitle}>
+                {userRole}{userCompany ? ` \u00B7 ${userCompany}` : ''}
+              </span>
+            ) : null}
           </div>
         </div>
 
@@ -83,11 +113,22 @@ export default function ChatConversation({
         <div className={styles.messages}>
           {conversationMode === 'request' && messages.length === 0 && (
             <div className={styles.infoCard}>
-              <Icon name="lock" size={32} color="var(--color-primary)" />
+              <span className={styles.waveEmoji}>{'\u{1F44B}'}</span>
               <div className={styles.infoText}>
-                <strong>{firstName}</strong> accepts new chats by request. Send a message to introduce yourself.
+                <strong>{firstName}</strong> accepts chats by request.
+                <br />
+                Introduce yourself to start a conversation.
               </div>
             </div>
+          )}
+
+          {mode === 'accepted' && (
+            <>
+              <div className={`${styles.bubble} ${styles.incoming}`}>
+                {initialIncomingMessage}
+              </div>
+              <div className={styles.systemMessage}>You accepted this request {'\u2014'} say hello!</div>
+            </>
           )}
 
           {messages.map((msg, i) => {
@@ -107,9 +148,9 @@ export default function ChatConversation({
           })}
 
           {conversationMode === 'request-sent' && (
-            <div className={styles.waitingCard}>
-              <Icon name="hourglass_top" size={22} color="var(--color-on-primary-container)" />
-              <span>Waiting for {firstName} to accept your request</span>
+            <div className={styles.sentConfirm}>
+              Your message has been sent.<br />
+              {firstName} will see it next time they check.
             </div>
           )}
 
@@ -131,8 +172,10 @@ export default function ChatConversation({
             <Icon name="send" size={20} color="var(--color-on-primary)" />
           </button>
         </div>
-        {conversationMode === 'request' && (
-          <div className={styles.helperText}>You can send 1 message</div>
+        {(conversationMode === 'request' || conversationMode === 'request-sent') && (
+          <div className={`${styles.messageCounter} ${conversationMode === 'request-sent' ? styles.counterZero : ''}`}>
+            {conversationMode === 'request' ? '1' : '0'}
+          </div>
         )}
       </div>
     </ScreenShell>

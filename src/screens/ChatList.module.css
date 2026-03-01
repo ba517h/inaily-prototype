@@ -93,6 +93,21 @@
   cursor: pointer;
   transition: background-color var(--transition-micro);
   animation: fadeSlideIn 400ms var(--ease-expressive-spatial) both;
+  position: relative;
+}
+
+.chatRow::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 76px;
+  right: 20px;
+  height: 1px;
+  background: color-mix(in srgb, var(--color-outline-variant) 50%, transparent);
+}
+
+.chatRow:last-child::after {
+  display: none;
 }
 
 .chatRow:hover { background-color: var(--color-surface-container-low); }
@@ -110,12 +125,6 @@
 .chatContent {
   flex: 1;
   min-width: 0;
-  border-bottom: 1px solid color-mix(in srgb, var(--color-outline-variant) 50%, transparent);
-  padding-bottom: 14px;
-}
-
-.chatRow:last-child .chatContent {
-  border-bottom: none;
 }
 
 .chatName {
@@ -157,7 +166,7 @@
   -webkit-box-orient: vertical;
 }
 
-/* Message row meta (time + chevron) */
+/* Message row meta (time) */
 .chatMeta {
   flex-shrink: 0;
   display: flex;
@@ -169,7 +178,8 @@
 
 .chatTime {
   font-family: var(--type-label-small-family);
-  font-size: var(--type-label-small-size);
+  font-size: 13px;
+  font-weight: 500;
   color: var(--color-on-surface-variant);
   white-space: nowrap;
 }
@@ -215,18 +225,27 @@
   transform: scale(0.95);
 }
 
+/* ── Fading animation (accept/decline) ── */
+.fading {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 300ms ease, transform 300ms ease;
+}
+
 /* ── Off Banner ── */
 .offBanner {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 10px;
-  margin: 4px 20px 8px;
+  margin: 0 16px 8px;
   padding: 12px 16px;
-  background-color: var(--color-surface-container-low);
   border-radius: var(--shape-md);
+  background-color: var(--color-error-container);
+  color: var(--color-on-error-container);
   font-family: var(--type-body-small-family);
-  font-size: var(--type-body-small-size);
-  color: var(--color-on-surface-variant);
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
   animation: fadeSlideIn 400ms var(--ease-expressive-spatial) both;
 }
 

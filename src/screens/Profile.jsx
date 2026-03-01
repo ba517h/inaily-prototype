@@ -41,11 +41,14 @@ export default function Profile() {
             <div className={styles.completion}>
               <div className={styles.completionHeader}>
                 <span className={styles.completionLabel}>Profile completion</span>
-                <span className={styles.completionValue}>40%</span>
+                <span className={styles.completionPercent}>40%</span>
               </div>
               <div className={styles.completionTrack}>
                 <div className={styles.completionFill} style={{ '--fill-target': '40%' }} />
               </div>
+              <p className={styles.completionHelper}>
+                Complete your profile to get better matches
+              </p>
             </div>
           </div>
         </div>

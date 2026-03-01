@@ -372,8 +372,6 @@ export default function SpecsPage() {
                   }} />
                   <div style={{
                     flex: 1, minWidth: 0,
-                    borderBottom: '1px solid color-mix(in srgb, var(--color-outline-variant) 50%, transparent)',
-                    paddingBottom: 14,
                   }}>
                     <div style={{
                       fontFamily: 'var(--type-title-medium-family)', fontSize: 15,
@@ -393,10 +391,9 @@ export default function SpecsPage() {
                   </div>
                   <div style={{ flexShrink: 0, display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 4, marginTop: 2 }}>
                     <span style={{
-                      fontFamily: 'var(--type-label-small-family)', fontSize: 'var(--type-label-small-size)',
-                      color: 'var(--color-on-surface-variant)', whiteSpace: 'nowrap',
+                      fontFamily: 'var(--type-label-small-family)', fontSize: 13,
+                      fontWeight: 500, color: 'var(--color-on-surface-variant)', whiteSpace: 'nowrap',
                     }}>1h</span>
-                    <span style={{ fontSize: 18, color: 'var(--color-on-surface-variant)', opacity: 0.4 }}>›</span>
                   </div>
                 </div>
                 {/* Request row */}
@@ -448,21 +445,29 @@ export default function SpecsPage() {
                 'Row padding: 14px 20px',
                 'Avatar: 44px circle',
                 'Gap: 12px',
-                'Border-bottom: 1px outlineVariant @ 50%, starts at text column (not full width)',
+                'Border-bottom: 1px outlineVariant @ 50%, pseudo-element from 76px left to right padding',
               ]} />
               <SpecGroup title="Tokens" lines={[
                 'Background: transparent (hover: surfaceContainerLow)',
                 'Name: title-medium family, 15px, weight 600',
                 'Designation: body-medium family, 13px, onSurfaceVariant',
                 'Message: 13px, onSurfaceVariant @ 75% opacity, margin-top 8px',
-                'Time: label-small, onSurfaceVariant',
-                'Chevron: 18px, onSurfaceVariant @ 40% opacity',
+                'Time: 13px, weight 500, onSurfaceVariant',
               ]} />
               <SpecGroup title="Request variant" lines={[
                 'Message: 2-line clamp (no single-line truncation)',
                 'Accept btn: 8px 24px, 20px radius, primary bg, weight 600',
                 'Decline btn: 8px 24px, 20px radius, outlined, weight 500',
                 'Button press: scale(0.95)',
+                'Fade on accept/decline: 300ms opacity + translateX(-20px)',
+              ]} />
+              <SpecGroup title="Off banner" lines={[
+                'Position: between status selector and search field',
+                'Background: error-container (#FFD9E2)',
+                'Text: on-error-container, 13px, weight 500',
+                'Icon: chat_bubble 20px',
+                'Padding: 12px 16px, margin: 8px 16px 0',
+                'Radius: shape-md (12px)',
               ]} />
             </div>
           </SpecCard>

@@ -14,11 +14,38 @@ import SpecsPage from './screens/SpecsPage/SpecsPage';
 import styles from './App.module.css';
 
 function ChatDetail() {
-  return <ChatConversation mode="open" userName="Alice Johnson" userAvatar="https://i.pravatar.cc/150?img=47" />;
+  return <ChatConversation mode="open" userName="Alice Johnson" userRole="UX Researcher" userCompany="Stripe" userAvatar="https://i.pravatar.cc/150?img=47" />;
 }
 
 function RequestChat() {
-  return <ChatConversation mode="request" userName="Ravi Shankar" userAvatar="https://i.pravatar.cc/150?img=52" />;
+  return <ChatConversation mode="request" userName="Ravi Shankar" userRole="Staff Engineer" userCompany="Google" userAvatar="https://i.pravatar.cc/150?img=52" />;
+}
+
+function RequestSent() {
+  return (
+    <ChatConversation
+      mode="request"
+      startSent
+      prefilledMessage="Hey Ravi! Would love to chat about your dev tools talk."
+      userName="Ravi Shankar"
+      userRole="Staff Engineer"
+      userCompany="Google"
+      userAvatar="https://i.pravatar.cc/150?img=52"
+    />
+  );
+}
+
+function AcceptedChat() {
+  return (
+    <ChatConversation
+      mode="accepted"
+      userName="Mohammed Basith"
+      userRole="Product Designer"
+      userCompany="Pickyourtrail"
+      userAvatar="https://i.pravatar.cc/150?img=11"
+      initialIncomingMessage="Hey! Loved your talk on design systems"
+    />
+  );
 }
 
 const SCREENS = [
@@ -31,6 +58,8 @@ const SCREENS = [
   { id: 'chat', label: 'Chat', component: ChatList },
   { id: 'chatDetail', label: 'Chat Detail', component: ChatDetail },
   { id: 'requestChat', label: 'Request Chat', component: RequestChat },
+  { id: 'requestSent', label: 'Request Sent', component: RequestSent },
+  { id: 'acceptedChat', label: 'Accepted Chat', component: AcceptedChat },
   { id: 'profile', label: 'Profile', component: Profile },
 ];
 

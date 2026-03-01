@@ -10,12 +10,12 @@ const MODE_OPTIONS = [
 
 const MODE_LABELS = { open: 'Open to all', request: 'Request only', off: 'Turned off' };
 
-const REQUESTS = [
+const INITIAL_REQUESTS = [
   { name: 'Mohammed Basith', role: 'Product Designer', company: 'Pickyourtrail', avatarUrl: 'https://i.pravatar.cc/150?img=11', message: 'Hey! Loved your talk on design systems' },
   { name: 'Priya Menon', role: 'Product Manager', company: 'NexGen AI', avatarUrl: 'https://i.pravatar.cc/150?img=25', message: 'Would love to connect about AI product strategy' },
 ];
 
-const CONVERSATIONS = [
+const INITIAL_CONVERSATIONS = [
   { name: 'Alice Johnson', role: 'UX Researcher', company: 'Stripe', avatarUrl: 'https://i.pravatar.cc/150?img=47', lastMessage: 'Perfect, see you there!', time: '2m' },
   { name: 'Ravi Shankar', role: 'Staff Engineer', company: 'Google', avatarUrl: 'https://i.pravatar.cc/150?img=52', lastMessage: 'Thanks for the recommendation', time: '1h' },
   { name: 'Emily Davis', role: 'Design Lead', company: 'Meta', avatarUrl: 'https://i.pravatar.cc/150?img=23', lastMessage: "Let's catch up at the after-party", time: '3h' },
@@ -25,14 +25,38 @@ export default function ChatList() {
   const [chatMode, setChatMode] = useState('open');
   const [sheetOpen, setSheetOpen] = useState(false);
   const [query, setQuery] = useState('');
+  const [requests, setRequests] = useState(INITIAL_REQUESTS);
+  const [messages, setMessages] = useState(INITIAL_CONVERSATIONS);
+  const [fading, setFading] = useState(null);
 
-  const filtered = CONVERSATIONS.filter((c) =>
+  const filtered = messages.filter((c) =>
     c.name.toLowerCase().includes(query.toLowerCase())
   );
 
   const handleModeSelect = (id) => {
     setChatMode(id);
     setSheetOpen(false);
+  };
+
+  const handleAccept = (person) => {
+    setFading(person.name);
+    setTimeout(() => {
+      setRequests(prev => prev.filter(r => r.name !== person.name));
+      setMessages(prev => [{
+        ...person,
+        lastMessage: person.message,
+        time: 'now',
+      }, ...prev]);
+      setFading(null);
+    }, 300);
+  };
+
+  const handleDecline = (person) => {
+    setFading(person.name);
+    setTimeout(() => {
+      setRequests(prev => prev.filter(r => r.name !== person.name));
+      setFading(null);
+    }, 300);
   };
 
   return (
@@ -50,6 +74,13 @@ export default function ChatList() {
           <Icon name="expand_more" size={20} color="var(--color-primary)" />
         </button>
 
+        {chatMode === 'off' && (
+          <div className={styles.offBanner}>
+            <Icon name="chat_bubble" size={20} color="var(--color-on-error-container)" />
+            <span>New messages are off. Existing chats stay.</span>
+          </div>
+        )}
+
         <div className={styles.searchWrap}>
           <SearchField
             placeholder="Search conversations..."
@@ -59,31 +90,24 @@ export default function ChatList() {
         </div>
 
         <div className={styles.list}>
-          {chatMode === 'request' && REQUESTS.length > 0 && (
+          {chatMode === 'request' && requests.length > 0 && (
             <>
-              <div className={styles.sectionLabel}>REQUESTS ({REQUESTS.length})</div>
-              {REQUESTS.map((req) => (
-                <div key={req.name} className={styles.chatRow}>
+              <div className={styles.sectionLabel}>REQUESTS ({requests.length})</div>
+              {requests.map((req) => (
+                <div key={req.name} className={`${styles.chatRow} ${fading === req.name ? styles.fading : ''}`}>
                   <img className={styles.chatAvatar} src={req.avatarUrl} alt={req.name} />
                   <div className={styles.chatContent}>
                     <div className={styles.chatName}>{req.name}</div>
                     <div className={styles.chatDesignation}>{req.role} · {req.company}</div>
                     <div className={`${styles.chatMessage} ${styles.request}`}>"{req.message}"</div>
                     <div className={styles.requestActions}>
-                      <button className={styles.acceptBtn}>Accept</button>
-                      <button className={styles.declineBtn}>Decline</button>
+                      <button className={styles.acceptBtn} onClick={() => handleAccept(req)}>Accept</button>
+                      <button className={styles.declineBtn} onClick={() => handleDecline(req)}>Decline</button>
                     </div>
                   </div>
                 </div>
               ))}
             </>
-          )}
-
-          {chatMode === 'off' && (
-            <div className={styles.offBanner}>
-              <Icon name="chat_bubble_outline" size={20} color="var(--color-on-surface-variant)" />
-              <span>You've turned off new messages. Existing chats continue.</span>
-            </div>
           )}
 
           <div className={styles.sectionLabel}>MESSAGES</div>
@@ -97,7 +121,6 @@ export default function ChatList() {
               </div>
               <div className={styles.chatMeta}>
                 <span className={styles.chatTime}>{conv.time}</span>
-                <Icon name="chevron_right" size={18} color="var(--color-on-surface-variant)" style={{ opacity: 0.4 }} />
               </div>
             </div>
           ))}

@@ -148,18 +148,32 @@
   opacity: 0.7;
 }
 
-.completionValue {
-  font-family: var(--type-label-medium-family);
-  font-size: var(--type-label-medium-size);
-  font-weight: var(--type-label-medium-weight-emphasized);
-  color: var(--color-on-primary-container);
+.completionPercent {
+  font-family: var(--type-title-large-family);
+  font-size: 20px;
+  font-weight: 800;
+  color: var(--color-primary);
 }
 
 .completionTrack {
-  height: 6px;
-  border-radius: var(--shape-full);
-  background-color: rgba(35, 16, 71, 0.12);
-  overflow: hidden;
+  height: 8px;
+  border-radius: 4px;
+  background-color: var(--color-surface-container-highest);
+  overflow: visible;
+  position: relative;
+}
+
+/* Inactive track stop at the very end */
+.completionTrack::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-surface-container-highest);
 }
 
 @keyframes fillBar {
@@ -174,11 +188,26 @@
 
 .completionFill {
   height: 100%;
-  border-radius: var(--shape-full);
+  border-radius: 4px;
   background: linear-gradient(90deg, var(--color-primary), var(--color-tertiary));
   position: relative;
   overflow: hidden;
+  margin-right: 3px;
   animation: fillBar 800ms var(--ease-expressive-spatial) 300ms both;
+}
+
+/* Stop indicator at end of active fill */
+.completionFill::before {
+  content: '';
+  position: absolute;
+  right: -1px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  z-index: 1;
 }
 
 .completionFill::after {
@@ -187,6 +216,14 @@
   inset: 0;
   background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.4), transparent);
   animation: shimmer 1.2s ease-in-out 900ms both;
+}
+
+.completionHelper {
+  font-family: var(--type-body-small-family);
+  font-size: 12px;
+  color: var(--color-on-surface-variant);
+  margin-top: 8px;
+  opacity: 0.7;
 }
 
 /* ── Sections ── */
