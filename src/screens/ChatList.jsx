@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ScreenShell, StatusBar, BottomNav, SearchField, Icon, BottomSheet } from '../components';
+import { ScreenShell, StatusBar, BottomNav, SearchField, Icon, BottomSheet, Button } from '../components';
 import styles from './ChatList.module.css';
 
 const MODE_OPTIONS = [
@@ -101,8 +101,8 @@ export default function ChatList() {
                     <div className={styles.chatDesignation}>{req.role} · {req.company}</div>
                     <div className={`${styles.chatMessage} ${styles.request}`}>"{req.message}"</div>
                     <div className={styles.requestActions}>
-                      <button className={styles.acceptBtn} onClick={() => handleAccept(req)}>Accept</button>
-                      <button className={styles.declineBtn} onClick={() => handleDecline(req)}>Decline</button>
+                      <Button variant="filled" size="small" label="Accept" onClick={() => handleAccept(req)} />
+                      <Button variant="outlined" size="small" label="Decline" onClick={() => handleDecline(req)} />
                     </div>
                   </div>
                 </div>

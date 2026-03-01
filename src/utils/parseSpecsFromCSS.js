@@ -196,7 +196,7 @@ export const SPEC_CARD_DEFS = [
   {
     title: 'ChatRow',
     source: 'chatList',
-    classes: ['chatRow', 'chatAvatar', 'chatContent', 'chatName', 'chatDesignation', 'chatMessage', 'chatMeta', 'chatTime', 'requestActions', 'acceptBtn', 'declineBtn', 'offBanner'],
+    classes: ['chatRow', 'chatAvatar', 'chatContent', 'chatName', 'chatDesignation', 'chatMessage', 'chatMeta', 'chatTime', 'requestActions', 'offBanner'],
   },
   {
     title: 'IndustrySelector',

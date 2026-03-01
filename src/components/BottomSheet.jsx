@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import styles from './BottomSheet.module.css';
 
 /**
@@ -10,11 +11,29 @@ import styles from './BottomSheet.module.css';
  * - children: ReactNode
  */
 export default function BottomSheet({ isOpen, onClose, title, children }) {
-  if (!isOpen) return null;
+  const [isClosing, setIsClosing] = useState(false);
+
+  const handleClose = () => {
+    setIsClosing(true);
+    setTimeout(() => {
+      setIsClosing(false);
+      onClose();
+    }, 300);
+  };
+
+  if (!isOpen && !isClosing) return null;
+
+  const open = isOpen && !isClosing;
 
   return (
-    <div className={styles.overlay} onClick={onClose}>
-      <div className={styles.sheet} onClick={(e) => e.stopPropagation()}>
+    <div
+      className={`${styles.overlay} ${open ? styles.overlayOpen : ''}`}
+      onClick={handleClose}
+    >
+      <div
+        className={`${styles.sheet} ${open ? styles.sheetOpen : ''}`}
+        onClick={(e) => e.stopPropagation()}
+      >
         <div className={styles.handle} />
         {title && <div className={styles.title}>{title}</div>}
         <div className={styles.body}>{children}</div>

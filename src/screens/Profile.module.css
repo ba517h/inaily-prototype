@@ -38,7 +38,7 @@
 .avatar {
   width: 96px;
   height: 96px;
-  border-radius: 50%;
+  border-radius: var(--shape-full);
   background: linear-gradient(135deg, var(--color-primary), var(--color-tertiary));
   display: flex;
   align-items: center;

@@ -42,7 +42,7 @@ export const SCREEN_CSS_MAP = {
   otp:          { label: 'OTPScreen',        css: otpScreenCSS,        components: ['otpInput', 'button', 'statusBar', 'stepProgress'] },
   industry:     { label: 'IndustrySelect',   css: industrySelectCSS,   components: ['industrySelector', 'button', 'searchField', 'statusBar', 'stepProgress'] },
   networking:   { label: 'NetworkingBio',    css: networkingBioCSS,    components: ['outlinedField', 'exampleCard', 'button', 'statusBar', 'stepProgress'] },
-  chat:         { label: 'ChatList',         css: chatListCSS,         components: ['searchField', 'bottomSheet', 'bottomNav', 'statusBar'] },
+  chat:         { label: 'ChatList',         css: chatListCSS,         components: ['searchField', 'button', 'bottomSheet', 'bottomNav', 'statusBar'] },
   chatDetail:   { label: 'ChatConversation', css: chatConversationCSS, components: ['statusBar'] },
   requestChat:  { label: 'ChatConversation', css: chatConversationCSS, components: ['statusBar'] },
   requestSent:  { label: 'ChatConversation', css: chatConversationCSS, components: ['statusBar'] },

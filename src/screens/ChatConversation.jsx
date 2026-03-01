@@ -4,13 +4,13 @@ import styles from './ChatConversation.module.css';
 
 const INITIAL_MESSAGES = [
   { type: 'timestamp', text: 'Yesterday' },
-  { type: 'incoming', text: 'Hey! Great connecting at Tech Summit yesterday \u{1F44B}' },
-  { type: 'incoming', text: 'Would love to chat more about the design systems talk' },
-  { type: 'outgoing', text: 'Absolutely! That was such a good session' },
-  { type: 'outgoing', text: 'Are you free for a quick coffee chat tomorrow?' },
+  { type: 'incoming', text: 'Hey! Great connecting at Tech Summit yesterday \u{1F44B}', time: '2:30 PM' },
+  { type: 'incoming', text: 'Would love to chat more about the design systems talk', time: '2:31 PM' },
+  { type: 'outgoing', text: 'Absolutely! That was such a good session', time: '3:15 PM' },
+  { type: 'outgoing', text: 'Are you free for a quick coffee chat tomorrow?', time: '3:16 PM' },
   { type: 'timestamp', text: 'Today' },
-  { type: 'incoming', text: 'Sounds great! Let\u2019s connect after the keynote \u{1F60A}' },
-  { type: 'outgoing', text: 'Perfect, see you there!' },
+  { type: 'incoming', text: 'Sounds great! Let\u2019s connect after the keynote \u{1F60A}', time: '9:42 AM' },
+  { type: 'outgoing', text: 'Perfect, see you there!', time: '10:05 AM' },
 ];
 
 export default function ChatConversation({
@@ -28,7 +28,7 @@ export default function ChatConversation({
 
   const [messages, setMessages] = useState(
     startSent
-      ? [{ type: 'outgoing', text: prefilledMessage }]
+      ? [{ type: 'outgoing', text: prefilledMessage, time: '12:40 PM' }]
       : mode === 'open'
         ? INITIAL_MESSAGES
         : []
@@ -57,7 +57,9 @@ export default function ChatConversation({
   const handleSend = () => {
     const trimmed = message.trim();
     if (!trimmed) return;
-    setMessages((prev) => [...prev, { type: 'outgoing', text: trimmed }]);
+    const now = new Date();
+    const time = now.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit', hour12: true });
+    setMessages((prev) => [...prev, { type: 'outgoing', text: trimmed, time }]);
     setMessage('');
     if (conversationMode === 'request') {
       setConversationMode('request-sent');
@@ -109,23 +111,28 @@ export default function ChatConversation({
           </div>
         </div>
 
+        {/* Info card — full-width banner below header */}
+        {conversationMode === 'request' && messages.length === 0 && (
+          <div className={styles.infoCard}>
+            <span className={styles.waveEmoji}>{'\u{1F44B}'}</span>
+            <div className={styles.infoText}>
+              <strong>{firstName}</strong> accepts chats by request.
+              <br />
+              Introduce yourself to start a conversation.
+            </div>
+          </div>
+        )}
+
         {/* Messages */}
         <div className={styles.messages}>
-          {conversationMode === 'request' && messages.length === 0 && (
-            <div className={styles.infoCard}>
-              <span className={styles.waveEmoji}>{'\u{1F44B}'}</span>
-              <div className={styles.infoText}>
-                <strong>{firstName}</strong> accepts chats by request.
-                <br />
-                Introduce yourself to start a conversation.
-              </div>
-            </div>
-          )}
-
           {mode === 'accepted' && (
             <>
               <div className={`${styles.bubble} ${styles.incoming}`}>
-                {initialIncomingMessage}
+                <span className={styles.bubbleText}>
+                  {initialIncomingMessage}
+                  <span className={styles.timeSpacer}>11:30 AM</span>
+                </span>
+                <span className={styles.bubbleTime}>11:30 AM</span>
               </div>
               <div className={styles.systemMessage}>You accepted this request {'\u2014'} say hello!</div>
             </>
@@ -142,7 +149,11 @@ export default function ChatConversation({
                 key={i}
                 className={`${styles.bubble} ${msg.type === 'incoming' ? styles.incoming : styles.outgoing}`}
               >
-                {msg.text}
+                <span className={styles.bubbleText}>
+                  {msg.text}
+                  {msg.time && <span className={styles.timeSpacer}>{msg.time}</span>}
+                </span>
+                {msg.time && <span className={styles.bubbleTime}>{msg.time}</span>}
               </div>
             );
           })}
