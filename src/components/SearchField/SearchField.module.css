@@ -4,8 +4,13 @@
   align-items: center;
   gap: var(--spacing-sm);
   height: 44px;
-  padding: 0 var(--spacing-lg);
-  background-color: var(--color-surface-container-high);
+  min-height: 44px;
+  max-height: 44px;
+  box-sizing: border-box;
+  flex-shrink: 0;
+  padding: 0 var(--spacing-md);
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-outline-variant);
   border-radius: var(--shape-full);
   cursor: text;
   transition: all var(--transition-expressive-micro);
@@ -13,12 +18,17 @@
 }
 
 .wrapper:hover {
-  background-color: var(--color-surface-container-highest);
+  border-color: var(--color-on-surface);
 }
 
 .wrapper:focus-within {
-  background-color: var(--color-surface-container-highest);
+  border-color: var(--color-primary);
   box-shadow: 0 2px 12px rgba(104, 84, 142, 0.15);
+}
+
+.wrapper:focus-within .icon {
+  color: var(--color-primary);
+  opacity: 1;
 }
 
 .icon {
@@ -42,6 +52,7 @@
 
 .input::placeholder {
   color: var(--color-on-surface-variant);
+  opacity: 0.6;
 }
 
 .clearBtn {
@@ -60,5 +71,5 @@
 }
 
 .clearBtn:hover {
-  background: rgba(29, 27, 32, 0.08);
+  background: color-mix(in srgb, var(--color-on-surface) 8%, transparent);
 }
