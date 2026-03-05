@@ -3,12 +3,13 @@ import { ScreenShell, StatusBar, BottomNav, SearchField, Icon, BottomSheet, Butt
 import styles from './ChatList.module.css';
 
 const MODE_OPTIONS = [
-  { id: 'open', label: 'Open to all', desc: 'Anyone can message you' },
-  { id: 'request', label: 'Request only', desc: 'People send 1 message. You approve to continue.' },
-  { id: 'off', label: 'Turn off', desc: 'No new conversations. Existing chats continue.' },
+  { id: 'open', icon: 'forum', label: 'Open to all', desc: 'Anyone can message you' },
+  { id: 'request', icon: 'lock', label: 'Request only', desc: 'People send 1 message. You approve to continue.' },
+  { id: 'off', icon: 'do_not_disturb_on', label: 'Turn off', desc: 'No new conversations. Existing chats continue.' },
 ];
 
 const MODE_LABELS = { open: 'Open to all', request: 'Request only', off: 'Turned off' };
+const CHIP_LABELS = { open: 'Everyone', request: 'Requests', off: 'Off' };
 
 const INITIAL_REQUESTS = [
   { name: 'Mohammed Basith', role: 'Product Designer', company: 'Pickyourtrail', avatarUrl: 'https://i.pravatar.cc/150?img=11', message: 'Hey! Loved your talk on design systems' },
@@ -64,22 +65,14 @@ export default function ChatList() {
       <div className={styles.content}>
         <StatusBar />
 
-        <div className={styles.header}>
+        <div className={styles.headerRow}>
           <h1 className={styles.title}>Chats</h1>
+          <button className={styles.statusChip} onClick={() => setSheetOpen(true)}>
+            <span className={`${styles.statusDot} ${styles[chatMode]}`} />
+            <span className={styles.statusChipLabel}>{CHIP_LABELS[chatMode]}</span>
+            <Icon name="expand_more" size={16} color="var(--color-on-surface-variant)" />
+          </button>
         </div>
-
-        <button className={styles.statusSelector} onClick={() => setSheetOpen(true)}>
-          <span className={styles.statusLabel}>Your chat:</span>
-          <span className={styles.statusValue}>{MODE_LABELS[chatMode]}</span>
-          <Icon name="expand_more" size={20} color="var(--color-primary)" />
-        </button>
-
-        {chatMode === 'off' && (
-          <div className={styles.offBanner}>
-            <Icon name="chat_bubble" size={20} color="var(--color-on-error-container)" />
-            <span>New messages are off. Existing chats stay.</span>
-          </div>
-        )}
 
         <div className={styles.searchWrap}>
           <SearchField
@@ -127,7 +120,7 @@ export default function ChatList() {
         </div>
       </div>
 
-      <BottomSheet isOpen={sheetOpen} onClose={() => setSheetOpen(false)} title="Chat availability">
+      <BottomSheet isOpen={sheetOpen} onClose={() => setSheetOpen(false)} title="Message availability">
         {MODE_OPTIONS.map((opt) => {
           const selected = chatMode === opt.id;
           return (
@@ -142,6 +135,10 @@ export default function ChatList() {
               <div className={styles.optionText}>
                 <div className={styles.optionLabel}>{opt.label}</div>
                 <div className={styles.optionDesc}>{opt.desc}</div>
+              </div>
+              <div className={styles.optionEnd}>
+                <span className={`${styles.sheetDot} ${styles[opt.id]}`} />
+                <Icon name={opt.icon} size={20} color="var(--color-on-surface-variant)" />
               </div>
             </button>
           );

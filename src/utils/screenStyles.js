@@ -37,7 +37,8 @@ import pBarCSS from '../components/PBar/PBar.module.css?raw';
 // Screen CSS map — used by CodePanel "Screen" tab
 export const SCREEN_CSS_MAP = {
   myEvents:     { label: 'MyEvents',         css: myEventsCSS,         components: ['button', 'bottomSheet', 'outlinedField', 'bottomNav', 'statusBar'] },
-  attendees:    { label: 'Feed',             css: feedCSS,             components: ['attendeeCard', 'searchField', 'bottomNav', 'statusBar'] },
+  attendeesHero:      { label: 'Feed (Hero)',      css: feedCSS, components: ['attendeeCard', 'bottomNav', 'statusBar'] },
+  attendeesRelevance: { label: 'Feed (Relevance)', css: feedCSS, components: ['attendeeCard', 'bottomNav', 'statusBar'] },
   phone:        { label: 'PhoneEntry',       css: phoneEntryCSS,       components: ['outlinedField', 'button', 'statusBar', 'stepProgress'] },
   otp:          { label: 'OTPScreen',        css: otpScreenCSS,        components: ['otpInput', 'button', 'statusBar', 'stepProgress'] },
   industry:     { label: 'IndustrySelect',   css: industrySelectCSS,   components: ['industrySelector', 'button', 'searchField', 'statusBar', 'stepProgress'] },

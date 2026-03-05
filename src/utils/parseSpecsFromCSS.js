@@ -184,14 +184,14 @@ export const SPEC_CARD_DEFS = [
     classes: ['container', 'prefix', 'prefixText', 'divider', 'fieldWrap', 'label', 'labelFloating', 'input', 'inputMultiline', 'suffix'],
   },
   {
-    title: 'AttendeeCard \u2014 Bio Variant',
+    title: 'AttendeeCard \u2014 Hero',
     source: 'attendeeCard',
-    classes: ['card', 'photo', 'photoImg', 'badge', 'content', 'name', 'role', 'bio', 'tags', 'tag', 'actions'],
+    classes: ['card', 'photoWrapper', 'photoSection', 'photo', 'photoGradient', 'photoInfo', 'photoName', 'photoRole', 'infoSection', 'relevanceList', 'relevanceRow', 'relevanceIcon', 'relevanceText', 'actions'],
   },
   {
     title: 'AttendeeCard \u2014 Relevance',
     source: 'attendeeCard',
-    classes: ['card', 'reasons', 'reasonRow', 'reasonText', 'actions'],
+    classes: ['card', 'photoWrapper', 'photoSection', 'photo', 'cardName', 'cardRole', 'infoSection', 'relevanceList', 'relevanceRow', 'relevanceText', 'actions'],
   },
   {
     title: 'ChatRow',
@@ -212,11 +212,6 @@ export const SPEC_CARD_DEFS = [
     title: 'ProfileRow',
     source: 'profileRow',
     classes: ['row', 'iconBox', 'info', 'label', 'value', 'valueEmpty', 'divider'],
-  },
-  {
-    title: 'Tag / Chip',
-    source: 'attendeeCard',
-    classes: ['tag'],
   },
   {
     title: 'StatusBar',

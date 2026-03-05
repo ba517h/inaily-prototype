@@ -123,17 +123,17 @@ const SPEC_PREVIEWS = {
       </div>
     </div>
   ),
-  'AttendeeCard \u2014 Bio Variant': (
+  'AttendeeCard \u2014 Hero': (
     <div className={styles.previewLight} style={{ width: 320 }}>
       <AttendeeCard
-        variant="bio"
-        bestMatch
+        variant="hero"
         name="Mohammed Basith"
-        role="Product Designer"
-        company="Pickyourtrail"
-        bio="Building Product Hunt Kerala community."
-        tags={['Community', 'Product']}
-        avatarUrl="https://i.pravatar.cc/300?img=11"
+        role="Product Designer @ Pickyourtrail"
+        photoUrl="https://i.pravatar.cc/300?img=11"
+        relevance={[
+          { icon: 'interests', text: 'Shared interest in design' },
+          { icon: 'location_on', text: 'Based in Kerala' },
+        ]}
       />
     </div>
   ),
@@ -142,10 +142,9 @@ const SPEC_PREVIEWS = {
       <AttendeeCard
         variant="relevance"
         name="Priya Menon"
-        role="Founder"
-        company="NexGen AI"
-        avatarUrl="https://i.pravatar.cc/300?img=25"
-        reasons={[
+        role="Founder @ NexGen AI"
+        photoUrl="https://i.pravatar.cc/300?img=25"
+        relevance={[
           { icon: 'interests', text: 'Shared interest in AI' },
           { icon: 'apartment', text: 'Same industry' },
         ]}
@@ -222,26 +221,6 @@ const SPEC_PREVIEWS = {
     <div className={styles.previewLight} style={{ width: 300, display: 'flex', flexDirection: 'column', gap: 0 }}>
       <ProfileRow icon="📍" label="Current City" value="Chennai" showDivider />
       <ProfileRow icon="🔗" label="Company URL" empty />
-    </div>
-  ),
-  'Tag / Chip': (
-    <div className={styles.previewLight} style={{ display: 'flex', gap: 8 }}>
-      <span style={{
-        display: 'inline-flex', alignItems: 'center',
-        padding: '6px 14px', minHeight: 28,
-        borderRadius: 'var(--shape-sm)',
-        backgroundColor: 'var(--color-secondary-container)',
-        color: 'var(--color-on-secondary-container)',
-        fontFamily: 'var(--font-plain)', fontSize: 11, fontWeight: 500, letterSpacing: 0.5,
-      }}>Community</span>
-      <span style={{
-        display: 'inline-flex', alignItems: 'center',
-        padding: '6px 14px', minHeight: 28,
-        borderRadius: 'var(--shape-sm)',
-        backgroundColor: 'var(--color-secondary-container)',
-        color: 'var(--color-on-secondary-container)',
-        fontFamily: 'var(--font-plain)', fontSize: 11, fontWeight: 500, letterSpacing: 0.5,
-      }}>Product</span>
     </div>
   ),
   'StatusBar': (

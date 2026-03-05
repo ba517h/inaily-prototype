@@ -8,6 +8,7 @@ import PhoneEntry from './screens/PhoneEntry';
 import OTPScreen from './screens/OTPScreen';
 import IndustrySelect from './screens/IndustrySelect';
 import NetworkingBio from './screens/NetworkingBio';
+import ChatSetup from './screens/ChatSetup';
 import ChatList from './screens/ChatList';
 import ChatConversation from './screens/ChatConversation';
 import Profile from './screens/Profile';
@@ -51,11 +52,13 @@ function AcceptedChat() {
 
 const SCREENS = [
   { id: 'myEvents', label: 'My Events', component: MyEvents },
-  { id: 'attendees', label: 'Attendees', component: Feed },
+  { id: 'attendeesHero', label: 'Attendees (Hero)', component: () => <Feed variant="hero" /> },
+  { id: 'attendeesRelevance', label: 'Attendees (Relevance)', component: () => <Feed variant="relevance" /> },
   { id: 'phone', label: 'Phone Entry', component: PhoneEntry },
   { id: 'otp', label: 'OTP Verify', component: OTPScreen },
   { id: 'industry', label: 'Industry', component: IndustrySelect },
   { id: 'networking', label: 'Networking Bio', component: NetworkingBio },
+  { id: 'chatSetup', label: 'Chat (First Time)', component: ChatSetup },
   { id: 'chat', label: 'Chat', component: ChatList },
   { id: 'chatDetail', label: 'Chat Detail', component: ChatDetail },
   { id: 'requestChat', label: 'Request Chat', component: RequestChat },
@@ -73,7 +76,7 @@ export default function App() {
 
   const handleScreenClick = (i) => {
     setSpecsMode(false);
-    if (SCREENS[i].id === 'attendees') {
+    if (SCREENS[i].id === 'attendeesHero' || SCREENS[i].id === 'attendeesRelevance') {
       setFeedKey(k => k + 1);
     }
     setActiveScreen(i);
@@ -133,7 +136,7 @@ export default function App() {
             <>
               <PhoneFrame scale={0.8} dataTheme={theme}>
                 <div key={SCREENS[activeScreen].id} className={styles.screenEnter}>
-                  {SCREENS[activeScreen].id === 'attendees'
+                  {(SCREENS[activeScreen].id === 'attendeesHero' || SCREENS[activeScreen].id === 'attendeesRelevance')
                     ? <ActiveComponent key={feedKey} />
                     : <ActiveComponent />
                   }

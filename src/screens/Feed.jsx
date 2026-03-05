@@ -3,7 +3,70 @@ import { ScreenShell, AttendeeCard, Icon, StatusBar, BottomNav } from '../compon
 import FeedLoading from './FeedLoading';
 import styles from './Feed.module.css';
 
-export default function Feed() {
+const ATTENDEES = [
+  {
+    name: 'Narendran K',
+    role: 'Product Designer · Pickyourtrail',
+    photoUrl: 'https://randomuser.me/api/portraits/men/32.jpg',
+    relevance: [
+      { icon: 'interests', text: 'Shared interest in design & community' },
+      { icon: 'location_on', text: 'Based in Chennai' },
+      { icon: 'group', text: 'Mutual connection: Arjun' },
+    ],
+  },
+  {
+    name: 'Priya Sharma',
+    role: 'Founder · NexGen AI',
+    photoUrl: 'https://randomuser.me/api/portraits/women/44.jpg',
+    relevance: [
+      { icon: 'interests', text: 'Shared interest in AI & startups' },
+      { icon: 'apartment', text: 'Same industry' },
+      { icon: 'translate', text: 'Speaks Tamil & English' },
+    ],
+  },
+  {
+    name: 'Arjun Mehta',
+    role: 'Staff Engineer · Google',
+    photoUrl: 'https://randomuser.me/api/portraits/men/75.jpg',
+    relevance: [
+      { icon: 'work', text: 'Both in engineering' },
+      { icon: 'school', text: 'Same alma mater' },
+      { icon: 'interests', text: 'Into ML & infrastructure' },
+    ],
+  },
+  {
+    name: 'Fatima Zahra',
+    role: 'UX Researcher · Swiggy',
+    photoUrl: 'https://randomuser.me/api/portraits/women/68.jpg',
+    relevance: [
+      { icon: 'interests', text: 'Interested in design research' },
+      { icon: 'school', text: 'Same alma mater' },
+      { icon: 'location_on', text: 'Based in Bengaluru' },
+    ],
+  },
+  {
+    name: 'Rahul Verma',
+    role: 'Design Lead · Razorpay',
+    photoUrl: 'https://randomuser.me/api/portraits/men/52.jpg',
+    relevance: [
+      { icon: 'palette', text: 'Both in design' },
+      { icon: 'interests', text: 'Into design systems & tokens' },
+      { icon: 'apartment', text: 'Same industry vertical' },
+    ],
+  },
+  {
+    name: 'Sneha Iyer',
+    role: 'Senior PM · Microsoft',
+    photoUrl: 'https://randomuser.me/api/portraits/women/85.jpg',
+    relevance: [
+      { icon: 'work', text: 'Works in product management' },
+      { icon: 'interests', text: 'Into productivity tools' },
+      { icon: 'translate', text: 'Speaks English & Hindi' },
+    ],
+  },
+];
+
+export default function Feed({ variant = 'hero' }) {
   const [loading, setLoading] = useState(true);
 
   return (
@@ -35,76 +98,16 @@ export default function Feed() {
           <div className={styles.section}>
             <span className={styles.sectionLabel}>People at this event</span>
             <div className={styles.cardList}>
-              <AttendeeCard
-                bestMatch
-                variant="bio"
-                name="Mohammed Basith"
-                role="Product Designer"
-                company="Pickyourtrail"
-                bio="Building Product Hunt Kerala community. Want to meet Kerala-based startup founders."
-                tags={['Community', 'Product']}
-                avatarUrl="https://i.pravatar.cc/300?img=11"
-                chatMode="open"
-              />
-              <AttendeeCard
-                variant="relevance"
-                name="Priya Menon"
-                role="Founder"
-                company="NexGen AI"
-                avatarUrl="https://i.pravatar.cc/300?img=25"
-                chatMode="open"
-                reasons={[
-                  { icon: 'interests', text: 'Shared interest in AI & startups' },
-                  { icon: 'apartment', text: 'Same industry' },
-                  { icon: 'translate', text: 'Speaks Tamil & English' },
-                ]}
-              />
-              <AttendeeCard
-                variant="bio"
-                name="Ravi Shankar"
-                role="Staff Engineer"
-                company="Google"
-                bio="ML infrastructure at scale. Looking for infra and platform engineers."
-                tags={['ML', 'Infrastructure']}
-                avatarUrl="https://i.pravatar.cc/300?img=52"
-                chatMode="request"
-              />
-              <AttendeeCard
-                variant="relevance"
-                name="Alice Johnson"
-                role="UX Researcher"
-                company="Meta"
-                avatarUrl="https://i.pravatar.cc/300?img=47"
-                chatMode="open"
-                reasons={[
-                  { icon: 'interests', text: 'Interested in design research' },
-                  { icon: 'school', text: 'Same alma mater' },
-                  { icon: 'location_on', text: 'Based in Bengaluru' },
-                ]}
-              />
-              <AttendeeCard
-                variant="bio"
-                name="Akash Patel"
-                role="Design Lead"
-                company="Swiggy"
-                bio="Scaling design systems for millions. Always happy to nerd out on tokens."
-                tags={['Design Systems', 'Scale']}
-                avatarUrl="https://i.pravatar.cc/300?img=14"
-                chatMode="off"
-              />
-              <AttendeeCard
-                variant="relevance"
-                name="Emily Davis"
-                role="Senior PM"
-                company="Microsoft"
-                avatarUrl="https://i.pravatar.cc/300?img=23"
-                chatMode="request"
-                reasons={[
-                  { icon: 'work', text: 'Works in product management' },
-                  { icon: 'interests', text: 'Into productivity tools' },
-                  { icon: 'translate', text: 'Speaks English & Hindi' },
-                ]}
-              />
+              {ATTENDEES.map((a) => (
+                <AttendeeCard
+                  key={a.name}
+                  variant={variant}
+                  name={a.name}
+                  role={a.role}
+                  photoUrl={a.photoUrl}
+                  relevance={a.relevance}
+                />
+              ))}
             </div>
           </div>
         )}

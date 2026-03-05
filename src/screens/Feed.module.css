@@ -66,7 +66,7 @@
 
 /* ── Sections ── */
 .section {
-  padding: var(--spacing-xl) var(--spacing-lg) 0;
+  padding: var(--spacing-lg) var(--spacing-md) 0;
   animation: fadeSlideIn 400ms var(--ease-expressive-spatial) both;
   animation-delay: 100ms;
 }
@@ -83,5 +83,5 @@
 .cardList {
   display: flex;
   flex-direction: column;
-  gap: var(--spacing-lg);
+  gap: var(--spacing-md);
 }
